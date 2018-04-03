@@ -22,8 +22,6 @@
       :map web-mode-map
       :i "TAB" #'emmet-or-snippet-expand)
 
-(setq emmet-expand-jsx-className? t) ;; jsx uses className not class
-
 ;; Readd in rjsx's autotag shit
 (map! :after rjsx-mode
       :map rjsx-mode-map
