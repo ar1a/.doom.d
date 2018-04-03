@@ -14,8 +14,12 @@
               #'emmet-expand-yas
             #'emmet-expand-line))
          (#'indent-for-tab-command))))
+
 (map! :after rjsx-mode
       :map rjsx-mode-map
+      :i "TAB" #'emmet-or-snippet-expand)
+(map! :after web-mode
+      :map web-mode-map
       :i "TAB" #'emmet-or-snippet-expand)
 
 (setq emmet-expand-jsx-className? t) ;; jsx uses className not class
