@@ -27,5 +27,9 @@
       "C-d" #'rjsx-delete-creates-full-tag)
 
 
+;; Load snippets
+(after! yasnippet
+  (push (expand-file-name "snippets/" +private-config-path) yas-snippet-dirs))
+
 (load! +ruby)
 

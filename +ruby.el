@@ -9,6 +9,16 @@
   :commands (enh-ruby-mode)
   :config
   (add-hook 'enh-ruby-mode-hook #'flycheck-mode)
+
+  (defun tab-or-snippet-expand ()
+    (interactive)
+    (if (bound-and-true-p yas-minor-mode)
+        (if (yas--templates-for-key-at-point)
+            (call-interactively #'yas-expand)
+          (indent-for-tab-command))
+      (call-interactively #'indent-for-tab-command)))
+  (map! :map enh-ruby-mode-map
+        :i "TAB" #'tab-or-snippet-expand)
   )
 
 (def-package! yard-mode :hook enh-ruby-mode)
