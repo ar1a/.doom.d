@@ -40,4 +40,5 @@
 
 (load! +ruby)
 (load! +lsp)
+(load! +ui)
 
