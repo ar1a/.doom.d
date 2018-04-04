@@ -19,6 +19,8 @@
       (call-interactively #'indent-for-tab-command)))
   (map! :map enh-ruby-mode-map
         :i "TAB" #'tab-or-snippet-expand)
+
+  (setq sp-max-pair-length 6) ;; so class and module work
   )
 
 (def-package! yard-mode :hook enh-ruby-mode)
