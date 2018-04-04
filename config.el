@@ -31,7 +31,7 @@
 
 ;; Load snippets
 (after! yasnippet
-  (push (expand-file-name "snippets/" +private-config-path) yas-snippet-dirs))
+  (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
 
 (load! +ruby)
 
