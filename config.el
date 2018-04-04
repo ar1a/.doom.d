@@ -39,4 +39,5 @@
   (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
 
 (load! +ruby)
+(load! +lsp)
 
