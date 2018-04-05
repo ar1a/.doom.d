@@ -9,5 +9,5 @@
 
 ;; Change theme.
 ;; Nord is pretty cool: https://github.com/arcticicestudio/nord
-;; A nice alternative (although brighter) could be: nove - https://trevordmiller.com/projects/nova
+;; A nice alternative (although brighter) could be: nova - https://trevordmiller.com/projects/nova
 (setq dooom-theme 'doom-nord)
