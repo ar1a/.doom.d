@@ -1,10 +1,5 @@
 ;;;  -*- lexical-binding: t; -*-
 
-;; title bar translucent
-;; no idea if this works, ju#2672 suggested it
-(add-to-list 'default-frame-alist '(ns-transparent-tilebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
-
 ;; Fonts
 ;; https://github.com/adobe-fonts/source-code-pro/releases/tag/variable-fonts
 (setq doom-font (font-spec :family "Source Code Variable" :size 13))
