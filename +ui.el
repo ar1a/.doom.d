@@ -2,10 +2,10 @@
 
 ;; Fonts
 ;; https://github.com/adobe-fonts/source-code-pro/releases/tag/variable-fonts
-(setq doom-font (font-spec :family "Source Code Variable" :size 13))
+(setq doom-font (font-spec :family "Source Code Variable" :size 15))
 (setq doom-variable-pitch-font (font-spec :family "Source Code Variable"))
 (setq doom-unicode-font (font-spec :family "Source Code Variable"))
-(setq doom-big-font (font-spec :family "Source Code Variable" :size 19))
+(setq doom-big-font (font-spec :family "Source Code Variable" :size 24))
 
 ;; Change theme.
 ;; Nord is pretty cool: https://github.com/arcticicestudio/nord
@@ -29,3 +29,17 @@
     '((slot . 2) (side . right) (window-height . 0.6))
     '((select . nil)))
   )
+
+
+;; Thanks to bitwalker for this
+(after! neotree
+  ;; When switching to a file in the current project, expand the directory
+  ;; tree to the new file buffer
+  (add-hook! 'find-file-hook
+    (if (and (buffer-file-name) (neo-global--window-exists-p))
+        ;; And only if the file is a child of the current neotree root
+        (if (ne-global--file-in-root-p (buffer-file-name))
+            ;; We need to trigger neotree-find then switch back to the buffer we just opened
+            (save-current-buffer (neotree-find))
+            ))
+    ))
