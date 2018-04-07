@@ -41,5 +41,5 @@
         (if (neo-global--file-in-root-p (buffer-file-name))
             ;; We need to trigger neotree-find then switch back to the buffer we just opened
             (save-current-buffer (neotree-find))
-            ))
+          ))
     ))
