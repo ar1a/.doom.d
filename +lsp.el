@@ -7,6 +7,7 @@
 (def-package! lsp-ui
   :after lsp-mode
   :config
+  (setq lsp-ui-flycheck-enable nil) ;; disable lsp-ui flycheck, i use eslint in javascript
   (add-hook! 'lsp-mode-hook #'lsp-ui-mode))
 
 (def-package! company-lsp

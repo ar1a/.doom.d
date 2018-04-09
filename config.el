@@ -50,6 +50,10 @@
      web-mode-code-indent-offset 2)
     )
   (add-hook 'web-mode-hook 'my-web-mode-hook)
+
+  ;; Enable  flycheck in web-mode
+  (add-hook 'web-mode-hook 'flycheck-mode)
+
   (setq
    ;; JSX in .js files
    web-mode-content-types-alist
