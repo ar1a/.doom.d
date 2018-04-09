@@ -43,16 +43,21 @@
 (push '("\\.jsx$" . web-mode) auto-mode-alist)
 
 (after! web-mode
-  (setq
-  ;; JSX in .js files
-   web-mode-content-types-alist
-        '(("jsx" . "\\.js[x]?\\'"))
-        )
 
   ;; Indent settings
-  web-mode-markup-indent-offset 2
-  web-mode-css-indent-offset 2
-  web-mode-code-indent-offset 2
+  (defun my-web-mode-hook()
+    "Hooks for Web mode."
+    (setq
+     web-mode-markup-indent-offset 2
+     web-mode-css-indent-offset 2
+     web-mode-code-indent-offset 2)
+    )
+  (add-hook 'web-mode-hook 'my-web-mode-hook)
+  (setq
+   ;; JSX in .js files
+   web-mode-content-types-alist
+   '(("jsx" . "\\.js[x]?\\'"))
+   )
 
   ;; Disable jshint so we get eslint checking
   (setq-default flycheck-disabled-checkers
