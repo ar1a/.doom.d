@@ -28,12 +28,6 @@
       "<" #'rjsx-electric-lt
       "C-d" #'rjsx-delete-creates-full-tag)
 
-
-;; TODO removed me one hlissner does it
-(after! web-mode
-  (remove-hook 'web-mode-hook #'turn-off-smartparens-mode)
-  )
-
 ;; Load snippets
 (after! yasnippet
   (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
@@ -43,6 +37,9 @@
 (push '("\\.jsx$" . web-mode) auto-mode-alist)
 
 (after! web-mode
+
+  ;; TODO removed me one hlissner does it
+  (remove-hook 'web-mode-hook #'turn-off-smartparens-mode)
 
   ;; Indent settings
   (defun my-web-mode-hook()
