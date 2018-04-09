@@ -38,7 +38,32 @@
 (after! yasnippet
   (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
 
+;; Load web mode instead of js2-mode by default
+(push '("\\.js$" . web-mode) auto-mode-alist)
+(push '("\\.jsx$" . web-mode) auto-mode-alist)
+
+(after! web-mode
+  (setq
+  ;; JSX in .js files
+   web-mode-content-types-alist
+        '(("jsx" . "\\.js[x]?\\'"))
+        )
+
+  ;; Indent settings
+  web-mode-markup-indent-offset 2
+  web-mode-css-indent-offset 2
+  web-mode-code-indent-offset 2
+
+  ;; Disable jshint so we get eslint checking
+  (setq-default flycheck-disabled-checkers
+                (append flycheck-disabled-checkers
+                        '(javascript-jshint)))
+
+  ;; use eslint with web-mode
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
+  )
+
+;; Modules
 (load! +ruby)
 (load! +lsp)
 (load! +ui)
-

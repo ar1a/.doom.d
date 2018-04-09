@@ -20,4 +20,5 @@
   (add-hook! js-mode #'lsp-javascript-typescript-enable)
   (add-hook! typescript-mode #'lsp-javascript-typescript-enable)
   (add-hook! rjsx-mode #'lsp-javascript-typescript-enable)
+  (add-hook! web-mode #'lsp-javascript-typescript-enable)
   )
