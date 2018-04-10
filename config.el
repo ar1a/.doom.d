@@ -60,6 +60,7 @@
    '(("jsx" . "\\.js[x]?\\'"))
    )
 
+
   ;; Disable jshint so we get eslint checking
   (setq-default flycheck-disabled-checkers
                 (append flycheck-disabled-checkers
@@ -67,6 +68,26 @@
 
   ;; use eslint with web-mode
   (flycheck-add-mode 'javascript-eslint 'web-mode)
+
+  ;; Trigger eslint --fix on save
+  (defun eslint-fix-file()
+    (interactive)
+    (message "eslint --fixing the file" (buffer-file-name))
+    (shell-command (concat "eslint --fix " (buffer-file-name))))
+
+  (defun eslint-fix-file-and-revert()
+    (interactive)
+    (eslint-fix-file)
+    (revert-buffer t t))
+
+  (add-hook 'web-mode-hook
+    (lambda ()
+      (add-hook 'after-save-hook #'eslint-fix-file-and-revert)))
+  )
+
+(after! javascript
+  ;; STOP LOADING RJSX IN REACT FILES
+  (map-delete magic-mode-alist '+javascript-jsx-file-p)
   )
 
 ;; Modules
