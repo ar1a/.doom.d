@@ -69,6 +69,8 @@
   ;; use eslint with web-mode
   (flycheck-add-mode 'javascript-eslint 'web-mode)
 
+
+
   ;; Trigger eslint --fix on save
   (defun eslint-fix-file()
     (interactive)
@@ -81,14 +83,12 @@
     (revert-buffer t t))
 
   (add-hook 'web-mode-hook
-    (lambda ()
-      (add-hook 'after-save-hook #'eslint-fix-file-and-revert)))
+            (lambda ()
+              (add-hook 'after-save-hook #'eslint-fix-file-and-revert)))
   )
 
-(after! javascript
-  ;; STOP LOADING RJSX IN REACT FILES
-  (map-delete magic-mode-alist '+javascript-jsx-file-p)
-  )
+;; STOP LOADING RJSX IN REACT FILES
+(setq magic-mode-alist (map-delete magic-mode-alist '+javascript-jsx-file-p))
 
 ;; Modules
 (load! +ruby)
