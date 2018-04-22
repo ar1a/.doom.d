@@ -1,5 +1,8 @@
 ;;;  -*- lexical-binding: t; -*-
 
+;; stop fucking indexing node_modules
+(setq projectile-globally-ignored-directories '("node_modules"))
+
 ;; Load snippets
 (after! yasnippet
   (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
