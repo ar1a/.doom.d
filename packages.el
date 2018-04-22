@@ -8,7 +8,7 @@
 (package! rubocop)
 
 ;; lsp stuff
-(package! lsp-mode)
-(package! lsp-ui)
-(package! company-lsp)
-(package! lsp-javascript-typescript)
+;; (package! lsp-mode)
+;; (package! lsp-ui)
+;; (package! company-lsp)
+;; (package! lsp-javascript-typescript)
