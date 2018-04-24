@@ -12,3 +12,7 @@
 ;; (package! lsp-ui)
 ;; (package! company-lsp)
 ;; (package! lsp-javascript-typescript)
+
+(package! flow-minor-mode)
+(package! company-flow)
+(package! prettier-js)

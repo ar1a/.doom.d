@@ -3,7 +3,7 @@
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
-      ;debugger          ; FIXME stepping through code, to help you add bugs
+                                        ;debugger          ; FIXME stepping through code, to help you add bugs
        eval              ; run code, run (also, repls)
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
@@ -19,10 +19,11 @@
 
        :completion
        (company
-                                   +auto
-                                        );the ultimate code completion backend
-      ;helm              ; the *other* search engine for love and life
-      ;ido               ; the other *other* search engine...
+        +auto
+        ;; +childframe
+        );the ultimate code completion backend
+        ;helm              ; the *other* search engine for love and life
+        ;ido               ; the other *other* search engine...
        ivy               ; a search engine for love and life
 
        :ui
@@ -34,8 +35,8 @@
        hl-todo           ; highlight TODO/FIXME/NOTE tags
        nav-flash         ; blink the current line after jumping
        posframe          ; use child frames where possible (Emacs 26+ only)
-      ;tabbar            ; FIXME an (incomplete) tab bar for Emacs
-      ;unicode           ; extended unicode support for various languages
+                                        ;tabbar            ; FIXME an (incomplete) tab bar for Emacs
+                                        ;unicode           ; extended unicode support for various languages
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
 
@@ -46,13 +47,13 @@
        gist              ; interacting with github gists
        imenu             ; an imenu sidebar and searchable code index
        impatient-mode    ; show off code over HTTP
-      ;macos             ; MacOS-specific commands
+                                        ;macos             ; MacOS-specific commands
        make              ; run make tasks from Emacs
        magit             ;
        neotree           ; a project drawer, like NERDTree for vim
        password-store    ; password manager for nerds
        pdf               ; pdf enhancements
-      ;rgb               ; creating color strings
+                                        ;rgb               ; creating color strings
        rotate-text       ; cycle region at point between text candidates
        term              ; terminals in Emacs
        tmux              ; an API for interacting with tmux
@@ -72,7 +73,7 @@
        go                ; the hipster dialect
        (haskell +intero) ; a language that's lazier than I am
        hy                ; readability of scheme w/ speed of python
-      ;(java +meghanada) ; the poster child for carpal tunnel syndrome
+                                        ;(java +meghanada) ; the poster child for carpal tunnel syndrome
        javascript        ; all(hope(abandon(ye(who(enter(here))))))
        julia             ; a better, faster MATLAB
        latex             ; writing papers in Emacs has never been so fun
@@ -94,7 +95,7 @@
        purescript        ; javascript, but functional
        python            ; beautiful is better than ugly
        rest              ; Emacs as a REST client
-      ;ruby              ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+                                        ;ruby              ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        scala             ; java, but good
        sh                ; she sells (ba|z)sh shells on the C xor
@@ -106,9 +107,9 @@
        ;; toward a specific purpose. They may have additional dependencies and
        ;; should be loaded late.
        :app
-      ;(email +gmail)    ; emacs as an email client
+                                        ;(email +gmail)    ; emacs as an email client
        irc               ; how neckbeards socialize
-      ;(rss +org)        ; emacs as an RSS reader
+                                        ;(rss +org)        ; emacs as an RSS reader
        twitter           ; twitter client https://twitter.com/vnought
        (write            ; emacs as a word processor (latex + org + markdown)
         +wordnut         ; wordnet (wn) search
@@ -120,4 +121,4 @@
        ;; and additional ex commands for evil-mode. Use it as a reference for
        ;; your own modules.
        (default +bindings +snippets +evil-commands)
-)
+       )
