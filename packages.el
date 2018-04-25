@@ -16,3 +16,6 @@
 (package! flow-minor-mode)
 (package! company-flow)
 (package! prettier-js)
+
+;; Fuzzy searching
+(package! flx)
