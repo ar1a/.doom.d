@@ -23,9 +23,6 @@
 
 (after! web-mode
 
-  ;; TODO removed me one hlissner does it
-  (remove-hook 'web-mode-hook #'turn-off-smartparens-mode)
-
   ;; Indent settings
   (defun my-web-mode-hook()
     "Hooks for Web mode."
