@@ -13,9 +13,12 @@
 ;; (package! company-lsp)
 ;; (package! lsp-javascript-typescript)
 
+;; JS stuff
 (package! flow-minor-mode)
+(package! flycheck-flow)
 (package! company-flow)
 (package! prettier-js)
+(package! pkgbuild-mode)
 
 ;; Fuzzy searching
 (package! flx)

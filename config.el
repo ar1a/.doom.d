@@ -3,9 +3,10 @@
 (require 'flow-minor-mode)
 (require 'company-flow)
 (require 'prettier-js)
+(require 'flycheck-flow)
 
 ;; stop fucking indexing node_modules
-(setq projectile-globally-ignored-directories '("node_modules"))
+(setq projectile-globally-ignored-directories '("node_modules"  "flow-typed"))
 
 ;; Load snippets
 (after! yasnippet
