@@ -82,6 +82,12 @@
 
 (after! web-mode
   (add-hook 'web-mode-hook #'flycheck-mode)
+
+  (setq web-mode-markup-indent-offset 2 ;; Indentation
+        web-mode-code-indent-offset 2
+        web-mode-enable-auto-quoting nil ;; disbale adding "" after an =
+        web-mode-auto-close-style 2 ;; Close on > and </ not just </
+        )
   )
 
 ;; Flycheck when you hit escape in insert mode not only normal mode
