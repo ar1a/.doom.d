@@ -224,11 +224,32 @@
          :and "&&" :or "||"
          :for "for"
          :return "return"
-         :yield "#require")))
+         :yield "#require"))
+      ts-pretty-pairs
+      (pretty-code-get-pairs
+       '(
+         ;;Functional
+         :def
+         "function"
+
+         ;; Types
+         :null "null"
+         :true "true" :false "false"
+         :int "number"
+         :str "string"
+         :bool "boolean"
+
+         ;; Flow
+         :not "!"
+         :and "&&" :or "||"
+         :for "for"
+         :return "return" :yield "import")))
+
 
 
 (pretty-code-set-pairs `((js2-mode-hook ,js2-pretty-pairs)
                          (web-mode-hook ,js2-pretty-pairs)
+                         (typescript-mode-hook ,ts-pretty-pairs)
                          (c-mode-hook ,c-pretty-pairs)
                          (c++-mode-hook ,c-pretty-pairs)))
 
