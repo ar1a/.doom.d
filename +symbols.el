@@ -209,8 +209,8 @@
       c-pretty-pairs
       (pretty-code-get-pairs
        '( ;; Functional
-         :def
-         "void "
+         ;; :def
+         ;; "void "
          ;; Types
          :null "nullptr"
          :true "true" :false "false"
