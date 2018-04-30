@@ -209,7 +209,8 @@
          :yield "import"
          )))
 
-(pretty-code-set-pairs `((js2-mode-hook ,js2-pretty-pairs)))
+(pretty-code-set-pairs `((js2-mode-hook ,js2-pretty-pairs)
+                         (web-mode-hook ,js2-pretty-pairs)))
 
 ;; When you get to the right edge, it goes back to how it normally prints
 (setq prettify-symbols-unprettify-at-point 'right-edge)
