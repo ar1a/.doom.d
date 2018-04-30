@@ -93,5 +93,6 @@
 (load! +ruby)
 ;; (load! +lsp)
 (load! +ui)
+(load! +lisp)
 
 (setq-default company-frontends '(company-pseudo-tooltip-frontend company-echo-metadata-frontend))
