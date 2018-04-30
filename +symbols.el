@@ -159,13 +159,12 @@
 
     ;; Other
     (:tuple       "⨂")
-    (:pipe        "")
-    ))
+    (:pipe        "")))
+
   "Options plist for `pretty-code-get-pairs'.")
 
 ;;; Core
 
-;;;###autoload
 (defun pretty-code-get-pairs (kwds)
   "Build an alist for prettify-symbols-alist from components from KWDS."
   (-non-nil
@@ -174,7 +173,6 @@
                  (plist-get pretty-code-choices it)))
          pretty-code-choices)))
 
-;;;###autoload
 (defun pretty-code-set-pairs (hook-pairs-alist)
   "Add hooks setting `prettify-symbols-alist' for many modes"
   (-each hook-pairs-alist
@@ -206,11 +204,31 @@
          :return "return"
 
          ;; Other
-         :yield "import"
-         )))
+         :yield "import"))
+
+      c-pretty-pairs
+      (pretty-code-get-pairs
+       '( ;; Functional
+         :def
+         "void "
+         ;; Types
+         :null "nullptr"
+         :true "true" :false "false"
+         :int "int" :float "float"
+         :str "std::string"
+         :bool "bool"
+         ;; Flow
+         :not "!"
+         :and "&&" :or "||"
+         :for "for"
+         :return "return"
+         :yield "#require")))
+
 
 (pretty-code-set-pairs `((js2-mode-hook ,js2-pretty-pairs)
-                         (web-mode-hook ,js2-pretty-pairs)))
+                         (web-mode-hook ,js2-pretty-pairs)
+                         (c-mode-hook ,c-pretty-pairs)
+                         (c++-mode-hook ,c-pretty-pairs)))
 
 ;; When you get to the right edge, it goes back to how it normally prints
 (setq prettify-symbols-unprettify-at-point 'right-edge)
