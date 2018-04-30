@@ -46,4 +46,3 @@
 
 (load! +symbols)
 
-(doom-big-font-mode) ;; Enable big font mode
