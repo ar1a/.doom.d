@@ -2,7 +2,10 @@
 
 ;; Fonts
 (setq doom-font (font-spec :family "Fira Code" :size 15))
-(setq doom-big-font (font-spec :family "Fira Code" :size 24))
+(setq doom-big-font (font-spec :family "Fira Code" :size 22))
+
+;; Dash highlighting
+(after! dash (dash-enable-font-lock))
 
 ;; Change theme.
 ;; Nord is pretty cool: https://github.com/arcticicestudio/nord
@@ -40,3 +43,5 @@
             (save-current-buffer (neotree-find))
           ))
     ))
+
+(load! +symbols)
