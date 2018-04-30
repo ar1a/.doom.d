@@ -19,9 +19,9 @@
 
        :completion
        (company
-        +auto
+        +auto)
         ;; +childframe
-        );the ultimate code completion backend
+        ;the ultimate code completion backend
         ;helm              ; the *other* search engine for love and life
         ;ido               ; the other *other* search engine...
        ivy               ; a search engine for love and life
@@ -120,5 +120,5 @@
        ;; a Spacemacs-inspired keybinding scheme, a custom yasnippet library,
        ;; and additional ex commands for evil-mode. Use it as a reference for
        ;; your own modules.
-       (default +bindings +snippets +evil-commands)
-       )
+       (default +bindings +snippets +evil-commands))
+

@@ -95,14 +95,14 @@ Example use:
 "
 
   (let ((glue (or glue '(Br . Bl)))
-		(head (car l))
-		(tail (cdr l)))
-	(cond
-	 ((not (consp l))    '())
-	 ((not (consp tail))  (list head))
-	 (t (cons head
-			  (cons glue
-					(prettify-utils--list tail glue)))))))
+        (head (car l))
+        (tail (cdr l)))
+    (cond
+     ((not (consp l))    '())
+     ((not (consp tail))  (list head))
+     (t (cons head
+              (cons glue
+                    (prettify-utils--list tail glue)))))))
 
 ;;;###autoload
 (defun prettify-utils-string (s &optional glue)
@@ -136,7 +136,7 @@ macro, but may be useful if manual alist creation is desired for some reason.
 Example:
 
 (setq prettify-symbols-alist `((\">=\" ?≥)
-	  ,(prettify-utils-create-pair \"foo\" \"bar\" '(Br . Bl))))
+      ,(prettify-utils-create-pair \"foo\" \"bar\" '(Br . Bl))))
 "
   (cons old (prettify-utils-string new glue)))
 
@@ -152,33 +152,33 @@ function and the 'reference-point-alist variable.
 Example #1:
 
 (setq prettify-symbols-alist
-	  (prettify-utils-generate (\"foo\" \"bar\")
-							   (\">=\" \"≥\" (Br . Bl))
-							   (\"->\"     \"→ \")))
+      (prettify-utils-generate (\"foo\" \"bar\")
+                               (\">=\" \"≥\" (Br . Bl))
+                               (\"->\"     \"→ \")))
 
 Example #2:
 
 (setq prettify-symbols-alist
-	  (prettify-generate
-	   (\"lambda\"  \"λ\")
-	   (\"|>\"      \"▷\")
-	   (\"<|\"      \"◁\")
-	   (\"->>\"     \"↠  \")
-	   (\"->\"      \"→ \")
-	   (\"<-\"      \"← \")
-	   (\"=>\"      \"⇒\")
-	   (\"<=\"      \"≤\")
-	   (\">=\"      \"≥\")))
+      (prettify-generate
+       (\"lambda\"  \"λ\")
+       (\"|>\"      \"▷\")
+       (\"<|\"      \"◁\")
+       (\"->>\"     \"↠  \")
+       (\"->\"      \"→ \")
+       (\"<-\"      \"← \")
+       (\"=>\"      \"⇒\")
+       (\"<=\"      \"≤\")
+       (\">=\"      \"≥\")))
 "
   (let* ((head       (car   pairs))
          (tail       (cdr   pairs))
          (old-string (car   head))
-		 (new-string (cadr  head))
-		 (glue-list  (caddr head)))
-	(if (not (consp head))
-		'()
-       `(cons (quote ,(prettify-utils-create-pair old-string new-string glue-list))
-			 (prettify-utils-generate ,@tail)))))
+         (new-string (cadr  head))
+         (glue-list  (caddr head)))
+    (if (not (consp head))
+        '()
+      `(cons (quote ,(prettify-utils-create-pair old-string new-string glue-list))
+             (prettify-utils-generate ,@tail)))))
 
 
 ;;;###autoload
@@ -197,18 +197,18 @@ you should use the 'prettify-utils-generate macro instead.
 Example:
 
 (prettify-utils-generate-f '(\"foo\" \"bar\")
-				           '(\">=\" \"≥\" (Br . Bl))
-						   '(\"->\"     \"→ \"))
+                           '(\">=\" \"≥\" (Br . Bl))
+                           '(\"->\"     \"→ \"))
 "
   (let* ((head       (car   pairs))
          (tail       (cdr   pairs))
          (old-string (car   head))
-		 (new-string (cadr  head))
-		 (glue-list  (caddr head)))
-  (if (not (consp head))
-	  '()
+         (new-string (cadr  head))
+         (glue-list  (caddr head)))
+    (if (not (consp head))
+        '()
       (cons (prettify-utils-create-pair old-string new-string glue-list)
-                   (apply 'prettify-utils-generate-f tail)))))
+            (apply 'prettify-utils-generate-f tail)))))
 
 ;;; prettify-utils.el ends here
 

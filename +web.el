@@ -29,8 +29,8 @@
     (setq
      web-mode-markup-indent-offset 2
      web-mode-css-indent-offset 2
-     web-mode-code-indent-offset 2)
-    )
+     web-mode-code-indent-offset 2))
+
   (add-hook 'web-mode-hook 'my-web-mode-hook)
 
   ;; Enable  flycheck in web-mode
@@ -39,8 +39,8 @@
   (setq
    ;; JSX in .js files
    web-mode-content-types-alist
-   '(("jsx" . "\\.js[x]?\\'"))
-   )
+   '(("jsx" . "\\.js[x]?\\'")))
+
 
 
   ;; Disable jshint so we get eslint checking
@@ -66,8 +66,8 @@
 
   (add-hook 'web-mode-hook
             (lambda ()
-              (add-hook 'after-save-hook #'eslint-fix-file-and-revert nil t)))
-  )
+              (add-hook 'after-save-hook #'eslint-fix-file-and-revert nil t))))
+
 
 ;; STOP LOADING RJSX IN REACT FILES
 (setq magic-mode-alist (map-delete magic-mode-alist '+javascript-jsx-file-p))

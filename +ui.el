@@ -27,8 +27,8 @@
     '((select . t)))
   (set! :popup "^\\(?: ?\\*\\)?magit-diff:.*"
     '((slot . 2) (side . right) (window-height . 0.6))
-    '((select . nil)))
-  )
+    '((select . nil))))
+
 
 
 ;; Thanks to bitwalker for this
@@ -40,9 +40,7 @@
         ;; And only if the file is a child of the current neotree root
         (if (neo-global--file-in-root-p (buffer-file-name))
             ;; We need to trigger neotree-find then switch back to the buffer we just opened
-            (save-current-buffer (neotree-find))
-          ))
-    ))
+            (save-current-buffer (neotree-find))))))
 
 (load! +symbols)
 

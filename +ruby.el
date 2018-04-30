@@ -20,8 +20,8 @@
   (map! :map enh-ruby-mode-map
         :i "TAB" #'tab-or-snippet-expand)
 
-  (setq sp-max-pair-length 6) ;; so class and module work
-  )
+  (setq sp-max-pair-length 6)) ;; so class and module work
+
 
 (def-package! yard-mode :hook enh-ruby-mode)
 
@@ -38,6 +38,6 @@
         :nv "rrf" #'rubocop-check-current-file
         :nv "rrF" #'rubocop-autocorrect-current-file
         :nv "rrp" #'rubocop-check-project
-        :nv "rrP" #'rubocop-autocorrect-project
-        )
-  )
+        :nv "rrP" #'rubocop-autocorrect-project))
+
+
