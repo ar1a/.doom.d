@@ -83,10 +83,6 @@
         web-mode-enable-auto-quoting nil ;; disbale adding "" after an =
         web-mode-auto-close-style 2)) ;; Close on > and </ not just </
 
-(after! helm-mode
-  (setq helm-mode-fuzzy-match t
-        helm-completion-in-region-fuzzy-match t))
-
 
 
 ;; Flycheck when you hit escape in insert mode not only normal mode
