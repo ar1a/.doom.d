@@ -61,8 +61,8 @@
             ("\\(/>\\)"                    #Xe12e)
             ("\\(//\\)"                    #Xe12f)
             ("\\(///\\)"                   #Xe130)
-            ("\\(&&\\)"                    #Xe131)
-            ("\\(||\\)"                    #Xe132)
+            ;; ("\\(&&\\)"                    #Xe131) ;; disabled because it conflicts with `prettify-symbols-mode'
+            ;; ("\\(||\\)"                    #Xe132) ;; see above
             ("\\(||=\\)"                   #Xe133)
             ("[^|]\\(|=\\)"                #Xe134)
             ("\\(|>\\)"                    #Xe135)
@@ -184,36 +184,7 @@
                   (setq prettify-symbols-alist pretty-pairs)
                   (prettify-symbols-mode 1))))))
 
-
-
 ;; Init the stuff
-
-;; (setq python-pretty-pairs
-;;       (pretty-code-get-pairs
-;;        '(;; Functional
-;;          :lambda
-;;          "lambda"
-;;          :def "def"
-
-;;          ;; Types
-;;          :null "None"
-;;          :true "True" :false "False"
-;;          :int "int" :float "float"
-;;          :str "str" :bool "bool"
-
-;;          ;; Flow
-;;          :not "not"
-;;          :in "in" :not-in "not in"
-;;          :and "and" :or "or"
-;;          :for "for"
-;;          :return "return" :yield "yield"
-
-;;          ;; Other
-;;          :tuple "Tuple" :pipe "tz-pipe"
-;;          )))
-;; pretty-code-set-pairs `((hy-mode-hook         ,hy-pretty-pairs)
-;;                         (python-mode-hook     ,python-pretty-pairs)
-;;                         (emacs-lisp-mode-hook ,emacs-lisp-pretty-pairs))
 
 (setq js2-pretty-pairs
       (pretty-code-get-pairs
@@ -221,18 +192,24 @@
          ;; Functional
          :def
          "function"
-         :lambda "() =>"
+         ;; :lambda "() =>" ;; Disabled because it conflicts with the ligatures
+         ;; but I don't want to disable => because its used elsewhere
 
          ;; Types
-         :null "Null"
+         :null "null"
          :true "true" :false "false"
 
          ;; Flow
-         :not "not"
+         :not "!"
          :and "&&" :or "||"
          :for "for"
          :return "return"
 
+         ;; Other
+         :yield "import"
          )))
 
 (pretty-code-set-pairs `((js2-mode-hook ,js2-pretty-pairs)))
+
+;; When you get to the right edge, it goes back to how it normally prints
+(setq prettify-symbols-unprettify-at-point 'right-edge)
