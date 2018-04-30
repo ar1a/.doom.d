@@ -211,12 +211,14 @@
        '( ;; Functional
          ;; :def
          ;; "void "
+
          ;; Types
          :null "nullptr"
          :true "true" :false "false"
          :int "int" :float "float"
          :str "std::string"
          :bool "bool"
+
          ;; Flow
          :not "!"
          :and "&&" :or "||"
