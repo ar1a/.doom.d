@@ -1,10 +1,7 @@
 ;;;  -*- lexical-binding: t; -*-
 
 ;; Fonts
-;; https://github.com/adobe-fonts/source-code-pro/releases/tag/variable-fonts
 (setq doom-font (font-spec :family "Fira Code" :size 15))
-(setq doom-variable-pitch-font (font-spec :family "Source Code Variable"))
-(setq doom-unicode-font (font-spec :family "Fira Code"))
 (setq doom-big-font (font-spec :family "Fira Code" :size 24))
 
 ;; Change theme.
