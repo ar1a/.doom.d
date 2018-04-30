@@ -5,9 +5,6 @@
 (require 'prettier-js)
 (require 'flycheck-flow)
 
-;; stop fucking indexing node_modules
-(setq projectile-globally-ignored-directories '("node_modules"  "flow-typed"))
-
 ;; Load snippets
 (after! yasnippet
   (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
@@ -19,8 +16,6 @@
 
 (after! tide
   (set! :company-backend 'tide-mode 'company-flow 'company-tide)
-  (setq tide-completion-detailed t
-        tide-always-show-documentation t)
   )
 
 (defun setup-prettier-js ()
