@@ -20,5 +20,8 @@
 (package! prettier-js)
 (package! pkgbuild-mode)
 
+;; Lisp stuff
+(package! parinfer)
+
 ;; Fuzzy searching
 (package! flx)

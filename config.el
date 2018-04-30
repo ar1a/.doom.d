@@ -15,29 +15,29 @@
         '((t . ivy--regex-fuzzy))))
 
 (after! tide
-  (set! :company-backend 'tide-mode 'company-flow 'company-tide)
-  )
+  (set! :company-backend 'tide-mode 'company-flow 'company-tide))
+
 
 (defun setup-prettier-js ()
   "Sets up arguments and the mode."
   (interactive)
   (setq prettier-js-args '(
-                           "--single-quote"
-                           ))
-  (prettier-js-mode)
-  )
+                           "--single-quote"))
+
+  (prettier-js-mode))
+
 
 (defun enable-minor-mode (my-pair)
   "Enable minor mode if filename matches the regexp.
   MY-PAIR is a cons cell (regexp . minor-mode)."
   (if (buffer-file-name)
       (if (string-match (car my-pair) buffer-file-name)
-          (funcall (cdr my-pair))))
-  )
+          (funcall (cdr my-pair)))))
+
 
 (after! web-mode
-  (add-hook! web-mode (enable-minor-mode '("\\.tsx\\'" . setup-prettier-js)))
-  )
+  (add-hook! web-mode (enable-minor-mode '("\\.tsx\\'" . setup-prettier-js))))
+
 
 (after! typescript-mode
   (defun tslint-fix-file ()
@@ -58,8 +58,8 @@
   (add-hook 'typescript-mode-hook #'flycheck-mode)
   ;; Prettier shit
   (add-hook 'typescript-mode-hook #'setup-prettier-js)
-  (setq typescript-indent-level 2)
-  )
+  (setq typescript-indent-level 2))
+
 
 (after! js2-mode
   ;; use eslintd-fix so when i save it fixes dumb shit
@@ -72,8 +72,8 @@
   (add-hook 'js2-mode-hook #'setup-prettier-js)
 
   ;; Indent shit
-  (setq js2-basic-offset 2)
-  )
+  (setq js2-basic-offset 2))
+
 
 (after! web-mode
   (add-hook 'web-mode-hook #'flycheck-mode)
@@ -81,9 +81,9 @@
   (setq web-mode-markup-indent-offset 2 ;; Indentation
         web-mode-code-indent-offset 2
         web-mode-enable-auto-quoting nil ;; disbale adding "" after an =
-        web-mode-auto-close-style 2 ;; Close on > and </ not just </
-        )
-  )
+        web-mode-auto-close-style 2)) ;; Close on > and </ not just </
+
+
 
 ;; Flycheck when you hit escape in insert mode not only normal mode
 (add-hook 'evil-insert-state-exit-hook #'+syntax-checkers|flycheck-buffer)
