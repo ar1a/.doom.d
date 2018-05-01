@@ -96,5 +96,3 @@
 (load! +ui) ;; My ui mods. Also contains ligature stuff.
 (load! +lisp) ;; Addon for lisp* modes. Check out https://shaunlebron.github.io/parinfer/
 (load! +music) ;; Music stuff, visible through SPC-a-m. Not perfect.
-
-(setq-default company-frontends '(company-pseudo-tooltip-frontend company-echo-metadata-frontend))
