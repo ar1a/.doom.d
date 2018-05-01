@@ -83,11 +83,6 @@
         web-mode-enable-auto-quoting nil ;; disbale adding "" after an =
         web-mode-auto-close-style 2)) ;; Close on > and </ not just </
 
-
-
-;; Flycheck when you hit escape in insert mode not only normal mode
-(add-hook 'evil-insert-state-exit-hook #'+syntax-checkers|flycheck-buffer)
-
 ;; Modules
 (load! +ruby) ;; Custom ruby mode. Make sure you disable ruby in init.el
 ;; These sort of go hand in hand
