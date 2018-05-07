@@ -5,6 +5,8 @@
 (require 'prettier-js)
 (require 'flycheck-flow)
 
+(setq evil-shift-width 2) ;; I normally use 2wide for my projects.
+
 ;; Load snippets
 (after! yasnippet
   (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
