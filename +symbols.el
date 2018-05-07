@@ -384,7 +384,7 @@
                          (c-mode-hook ,c-pretty-pairs)
                          (c++-mode-hook ,c-pretty-pairs)
                          (python-mode-hook ,py-pretty-pairs)
-                         (emacs-lisp-mode ,lisp-pretty-pairs)))
+                         (emacs-lisp-mode-hook ,lisp-pretty-pairs)))
 
 ;; When you get to the right edge, it goes back to how it normally prints
 (setq prettify-symbols-unprettify-at-point 'right-edge)
