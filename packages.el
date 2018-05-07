@@ -28,3 +28,6 @@
 
 ;; Music stuff
 (package! google-play-music :recipe (:fetcher github :repo "merrickluo/google-play-music.el"))
+
+;; Filestuff
+(package! ranger)
