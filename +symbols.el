@@ -297,8 +297,8 @@
          ;; Functional
          :def
          "function"
-         ;; :lambda "() =>" ;; Disabled because it conflicts with the ligatures
-         ;; but I don't want to disable => because its used elsewhere
+         :lambda "() =>"
+         :composition "compose"
 
          ;; Types
          :null "null"
@@ -339,6 +339,8 @@
          ;;Functional
          :def
          "function"
+         :lambda "() =>"
+         :composition "compose"
 
          ;; Types
          :null "null"
