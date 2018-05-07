@@ -225,6 +225,7 @@
          :for "for"
          :return "return"
          :yield "#require"))
+
       ts-pretty-pairs
       (pretty-code-get-pairs
        '(
@@ -243,7 +244,30 @@
          :not "!"
          :and "&&" :or "||"
          :for "for"
-         :return "return" :yield "import")))
+         :return "return" :yield "import"))
+      py-pretty-pairs
+      (pretty-code-get-pairs
+       '(
+         :def
+         "def"
+         :lambda "lambda"
+
+         :null "None"
+         :true "True" :false "False"
+         :int "int" :str "str"
+         :float "float"
+         :bool "bool"
+
+         :not "not"
+         :in "in" :not-in "not in"
+         :and "and" :or "or"
+         :for "for"
+         :return "return" :yield "yield"
+
+         :tuple "tuple")))
+
+
+
 
 
 
@@ -251,7 +275,8 @@
                          (web-mode-hook ,js2-pretty-pairs)
                          (typescript-mode-hook ,ts-pretty-pairs)
                          (c-mode-hook ,c-pretty-pairs)
-                         (c++-mode-hook ,c-pretty-pairs)))
+                         (c++-mode-hook ,c-pretty-pairs)
+                         (python-mode-hook ,py-pretty-pairs)))
 
 ;; When you get to the right edge, it goes back to how it normally prints
 (setq prettify-symbols-unprettify-at-point 'right-edge)
