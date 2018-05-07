@@ -3,7 +3,6 @@
 ;; Make sure you have the fonts in fonts.tar.gz installed
 
 (set-fontset-font t '(#xe100 . #xe16f) "Iosevka")
-
 (defun setup-iosevka-ligatures ()
   (setq prettify-symbols-alist
         (append prettify-symbols-alist '(
@@ -376,7 +375,21 @@
          :tuple "tuple"))
       lisp-pretty-pairs
       (pretty-code-get-pairs
-       '(:lambda "lambda")))
+       '(:lambda "lambda"))
+      elm-pretty-pairs
+      (pretty-code-get-pairs
+       '(
+         :null
+         "Nothing"
+         :true "True" :false "False"
+         :int "Int" :str "String"
+         :float "Float"
+         :bool "Bool"
+
+         :not "not"
+         :and "&&" :or "||")))
+
+
 
 (pretty-code-set-pairs `((js2-mode-hook ,js2-pretty-pairs)
                          (web-mode-hook ,js2-pretty-pairs)
@@ -384,7 +397,8 @@
                          (c-mode-hook ,c-pretty-pairs)
                          (c++-mode-hook ,c-pretty-pairs)
                          (python-mode-hook ,py-pretty-pairs)
-                         (emacs-lisp-mode-hook ,lisp-pretty-pairs)))
+                         (emacs-lisp-mode-hook ,lisp-pretty-pairs)
+                         (elm-mode-hook ,elm-pretty-pairs)))
 
 ;; When you get to the right edge, it goes back to how it normally prints
 (setq prettify-symbols-unprettify-at-point 'right-edge)
