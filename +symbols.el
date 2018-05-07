@@ -4,7 +4,6 @@
 
 (set-fontset-font t '(#xe100 . #xe16f) "Iosevka")
 
-
 (defun setup-iosevka-ligatures ()
   (setq prettify-symbols-alist
         (append prettify-symbols-alist '(
@@ -237,8 +236,6 @@
                                          ("<+>" . #Xe1cb)
                                          ("+>" . #Xe1cc)))))
 
-
-
 (load! prettify-utils) ;; https://github.com/Ilazki/prettify-utils.el/blob/master/prettify-utils.el
 
 ;; Grabbed this from https://github.com/ekaschalk/.spacemacs.d/blob/master/layers/display/local/pretty-code/pretty-code.el
@@ -379,11 +376,6 @@
       (pretty-code-get-pairs
        '(:lambda "lambda")))
 
-
-
-
-
-
 (pretty-code-set-pairs `((js2-mode-hook ,js2-pretty-pairs)
                          (web-mode-hook ,js2-pretty-pairs)
                          (typescript-mode-hook ,ts-pretty-pairs)
@@ -391,7 +383,6 @@
                          (c++-mode-hook ,c-pretty-pairs)
                          (python-mode-hook ,py-pretty-pairs)
                          (emacs-lisp-mode ,lisp-pretty-pairs)))
-
 
 ;; When you get to the right edge, it goes back to how it normally prints
 (setq prettify-symbols-unprettify-at-point 'right-edge)
