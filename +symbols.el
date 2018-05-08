@@ -380,15 +380,14 @@
       (pretty-code-get-pairs
        '(
          :null
-         "Nothing"
-         :true "True" :false "False"
-         :int "Int" :str "String"
-         :float "Float"
-         :bool "Bool"
+         "null"
+         :true "true" :false "false"
+         :int "int" :str "string"
+         :float "float"
+         :bool "bool"
 
          :not "not"
          :and "&&" :or "||")))
-
 
 
 (pretty-code-set-pairs `((js2-mode-hook ,js2-pretty-pairs)
@@ -398,7 +397,8 @@
                          (c++-mode-hook ,c-pretty-pairs)
                          (python-mode-hook ,py-pretty-pairs)
                          (emacs-lisp-mode-hook ,lisp-pretty-pairs)
-                         (elm-mode-hook ,elm-pretty-pairs)))
+                         (elm-mode-hook ,elm-pretty-pairs)
+                         (reason-mode-hook ,elm-pretty-pairs))) ;; temp
 
 ;; When you get to the right edge, it goes back to how it normally prints
 (setq prettify-symbols-unprettify-at-point 'right-edge)

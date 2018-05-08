@@ -31,3 +31,6 @@
 
 ;; Filestuff
 (package! ranger)
+
+;; Reasonml stuff
+(package! reason-mode)

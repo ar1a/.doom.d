@@ -85,12 +85,15 @@
         web-mode-enable-auto-quoting nil ;; disbale adding "" after an =
         web-mode-auto-close-style 2)) ;; Close on > and </ not just </
 
+(after! elm
+  (setq elm-tags-on-save t
+        elm-sort-imports-on-save t))
+
+
 ;; Modules
 (load! +ruby) ;; Custom ruby mode. Make sure you disable ruby in init.el
-;; These sort of go hand in hand
-;; (load! +web)
-;; (load! +lsp)
 (load! +ui) ;; My ui mods. Also contains ligature stuff.
 (load! +lisp) ;; Addon for lisp* modes. Check out https://shaunlebron.github.io/parinfer/
 (load! +music) ;; Music stuff, visible through SPC-a-m. Not perfect.
 (load! +ranger) ;; File manager stuff
+(load! +reason)
