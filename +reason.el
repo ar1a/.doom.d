@@ -5,8 +5,8 @@
   :commands (reason-mode)
   :config
   (let* (
-         (refmt-bin (shell-command-to-string "readlink -f $(which refmt)"))
-         (merlin-bin (shell-command-to-string "ocamlmerlin ----where"))
+         (refmt-bin (executable-find "refmt"))
+         (merlin-bin (executable-find "ocamlmerlin"))
          (merlin-base-dir (when merlin-bin
                             (replace-regexp-in-string "bin/ocamlmerlin$" "" merlin-bin))))
     ;; Add npm merlin.el to the emacs load path and tell emacs where to find ocamlmerlin
@@ -16,8 +16,9 @@
 
     (when refmt-bin
       (setq refmt-command refmt-bin))
-    (add-hook! reason-mode
-        (add-hook 'before-save-hook #'refmt-before-save nil t))
     (require 'merlin)
-    (merlin-mode)
-    (setq merlin-ac-setup t)))
+    (add-hook! reason-mode
+        (add-hook 'before-save-hook #'refmt-before-save nil t)
+        (merlin-mode))
+    (set! :electric 'some-mode :chars '(?|))
+    (set! :company-backend 'reason-mode 'merlin-company-backend)))
