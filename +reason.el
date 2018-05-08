@@ -20,5 +20,11 @@
     (add-hook! reason-mode
         (add-hook 'before-save-hook #'refmt-before-save nil t)
         (merlin-mode))
+    (setq-hook! reason-mode
+        indent-region-function #'apply-refmt)
     (set! :electric 'some-mode :chars '(?|))
+    (set! :lookup 'reason-mode
+        :definition #'merlin-locate
+        :references #'merlin-occurrences
+        :documentation #'tide-document)
     (set! :company-backend 'reason-mode 'merlin-company-backend)))
