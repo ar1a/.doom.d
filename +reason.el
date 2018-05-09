@@ -26,5 +26,5 @@
     (set! :lookup 'reason-mode
         :definition #'merlin-locate
         :references #'merlin-occurrences
-        :documentation #'tide-document)
+        :documentation #'merlin-document)
     (set! :company-backend 'reason-mode 'merlin-company-backend)))
