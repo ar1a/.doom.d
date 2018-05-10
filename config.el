@@ -88,6 +88,12 @@
   (setq elm-tags-on-save t
         elm-sort-imports-on-save t))
 
+(def-package! elcord
+  :commands elcord-mode
+  :init
+  (setq-default elcord-display-buffer-details nil)
+  (elcord-mode))
+
 
 ;; Modules
 (load! +ruby) ;; Custom ruby mode. Make sure you disable ruby in init.el

@@ -34,3 +34,6 @@
 
 ;; Reasonml stuff
 (package! reason-mode)
+
+;; Discord stuff
+(package! elcord)
