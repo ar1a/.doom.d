@@ -37,3 +37,8 @@
 
 ;; Discord stuff
 (package! elcord)
+
+;; Email stuff
+(package! notmuch)
+(package! counsel-notmuch)
+(package! org-mime)

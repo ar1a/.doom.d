@@ -7,6 +7,9 @@
 
 (setq evil-shift-width 2) ;; I normally use 2wide for my projects.
 
+(setq user-mail-address "aria@ar1as.space"
+      user-full-name "Aria Edm")
+
 ;; Load snippets
 (after! yasnippet
   (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
@@ -102,3 +105,4 @@
 (load! +music) ;; Music stuff, visible through SPC-a-m. Not perfect.
 (load! +ranger) ;; File manager stuff
 (load! +reason) ;; ReasonML stuff
+(load! +mail) ;; Mail stuff
