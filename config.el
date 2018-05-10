@@ -101,4 +101,4 @@
 (load! +lisp) ;; Addon for lisp* modes. Check out https://shaunlebron.github.io/parinfer/
 (load! +music) ;; Music stuff, visible through SPC-a-m. Not perfect.
 (load! +ranger) ;; File manager stuff
-(load! +reason)
+(load! +reason) ;; ReasonML stuff
