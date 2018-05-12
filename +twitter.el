@@ -7,6 +7,7 @@
                                        ;;considering you can hit "r" to refresh
   (map! :map twittering-mode-map
         "B" #'twittering-block ;; Shift because blocking is a pretty big action
+        "SPC" #'twittering-toggle-or-retrieve-replied-statuses ;; FIXME not binding
         "c" #'twittering-native-retweet
         "C" #'twittering-organic-retweet
         "d" #'twittering-delete-status
@@ -23,5 +24,6 @@
         "r" #'twittering-current-timeline ;; This should be refresh
         "w" #'twittering-visit-timeline
         "W" (lambda! (twittering-visit-timeline ":home"))
-        "y" #'twittering-push-uri-onto-kill-ring ;; URL under cursor or link to tweet
-        "Y" #'twittering-push-tweet-onto-kill-ring)) ;; Tweet content
+        "q" #'+twitter/quit-all
+        "Y" #'twittering-push-tweet-onto-kill-ring ;; Tweet content
+        "y" #'twittering-push-uri-onto-kill-ring)) ;; URL under cursor or link to tweet
