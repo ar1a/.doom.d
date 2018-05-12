@@ -20,7 +20,7 @@
   (map!
    (:leader
      (:prefix "o"
-       (:desc "Email (APP)" :nmv "e" #'=mail))))
+       (:desc "APP: Email" :nmv "e" #'=mail))))
   :config
   (setq notmuch-fcc-dirs nil
         notmuch-show-logo nil
