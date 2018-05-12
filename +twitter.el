@@ -2,7 +2,9 @@
 
 
 (after! twittering-mode
-  (setq twittering-initial-timeline-spec-string '(":home" ":mentions"))
+  (setq twittering-initial-timeline-spec-string '(":home" ":mentions")
+        twittering-timer-interval 300) ;; 5 seems like a reasonable refresh
+                                       ;;considering you can hit "r" to refresh
   (map! :map twittering-mode-map
         "c" #'twittering-native-retweet
         "C" #'twittering-organic-retweet
