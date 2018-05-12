@@ -6,9 +6,14 @@
         twittering-timer-interval 300) ;; 5 seems like a reasonable refresh
                                        ;;considering you can hit "r" to refresh
   (map! :map twittering-mode-map
+        "B" #'twittering-block ;; Shift because blocking is a pretty big action
         "c" #'twittering-native-retweet
         "C" #'twittering-organic-retweet
         "d" #'twittering-delete-status
+        "f" #'twittering-favorite
+        "F" #'twittering-unfavorite
+        "C-f" #'twittering-follow
+        "C-F" #'twittering-unfollow
         "g" #'twittering-goto-first-status
         "j" #'twittering-goto-next-status
         "k" #'twittering-goto-previous-status ;; Use tab to jump to links
