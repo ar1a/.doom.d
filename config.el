@@ -89,11 +89,11 @@
   (setq elm-tags-on-save t
         elm-sort-imports-on-save t))
 
-(def-package! elcord
-  :commands elcord-mode
-  :init
-  (setq-default elcord-display-buffer-details nil)
-  (elcord-mode))
+;; (def-package! elcord
+;;   :commands elcord-mode
+;;   :init
+;;   (setq-default elcord-display-buffer-details nil)
+;;   (elcord-mode))
 
 ;; Set twitter edit buffer to be 15 lines high so I can actually see what im
 ;; editing. FIXME this will be fixed upstream, remove me when it is
