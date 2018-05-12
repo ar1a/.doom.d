@@ -1,4 +1,7 @@
 ;;;  -*- lexical-binding: t; -*-
+
+(setq doom-leader-key "M-m"
+      doom-localleader-key "M-m m")
 (doom! :feature
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
@@ -13,7 +16,7 @@
        services          ; TODO managing external services & code builders
        snippets          ; my elves. They type so I don't have to
        spellcheck        ; tasing you for misspelling mispelling
-       (syntax-checker +childframe)    ; tasing you for every semicolon you forget
+       (syntax-checker) ;;+childframe)    ; tasing you for every semicolon you forget
        version-control   ; remember, remember that commit in November
        workspaces        ; tab emulation, persistence & separate workspaces
 
@@ -24,7 +27,7 @@
         ;the ultimate code completion backend
         ;helm              ; the *other* search engine for love and life
         ;ido               ; the other *other* search engine...
-       (ivy +childframe)               ; a search engine for love and life
+       (ivy) ;;+childframe)               ; a search engine for love and life
 
        :ui
        doom              ; what makes DOOM look the way it does

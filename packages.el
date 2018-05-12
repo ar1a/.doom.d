@@ -42,3 +42,6 @@
 (package! notmuch)
 (package! counsel-notmuch)
 (package! org-mime)
+
+;; EXWM stuff
+(package! exwm)
