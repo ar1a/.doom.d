@@ -7,7 +7,7 @@
         :localleader
         :desc "Create/Edit Todo" :nve "o" #'org-todo
         :desc "Schedule" :nve "s" #'org-schedule
-        :desc "Deadline" :nve "d" #'org-agenda-deadline
+        :desc "Deadline" :nve "d" #'org-deadline
         :desc "Refile" :nve "r" #'org-refile
         :desc "Filter" :nve "f" #'org-match-sparse-tree
         :desc "Tag heading" :nve "t" #'org-set-tags-command)
