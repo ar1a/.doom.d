@@ -44,18 +44,7 @@
            :nick "ar1a"
            :sasl-username "ar1a"
            :sasl-password irc-password
-           :channels ("#emacs")))
-
-  ;;Bitlbee
-  (set! :irc "localhost"
-    '(:port 6667
-            :nick "ar1a"
-            :nickserv-password irc-password
-            :nickserv-mask "\\(bitlbee\\|root\\)!\\(bitlbee\\|root\\)@"
-            :nickserv-identify-challenge "use the \x02identify\x02 command to identify yourself"
-            :nickserv-identify-command "PRIVMSG &bitlbee :identify {password}"
-            :nickserv-identify-confirmation "Password accepted, settings and accounts loaded"
-            :channels ("&bitlbee"))))
+           :channels ("#emacs"))))
 
 
 (map! :leader
