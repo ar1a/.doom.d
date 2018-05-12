@@ -2,6 +2,7 @@
 
 
 (after! twittering-mode
+  (require 'ace-link)
   (setq twittering-initial-timeline-spec-string '(":home" ":mentions")
         twittering-timer-interval 300) ;; 5 seems like a reasonable refresh
                                        ;;considering you can hit "r" to refresh
@@ -22,6 +23,7 @@
         "O" #'twittering-enter
         "C-o" #'twittering-direct-message ;; Needed a third to do things. I guess C-o?
         "r" #'twittering-current-timeline ;; This should be refresh
+        "t" #'ace-link-org
         "w" #'twittering-visit-timeline
         "W" (lambda! (twittering-visit-timeline ":home"))
         "q" #'+twitter/quit-all
