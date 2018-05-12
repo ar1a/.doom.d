@@ -153,7 +153,7 @@
   (interactive)
   (unless (featurep! :feature workspaces)
     (user-error ":feature workspaces is required, but disabled"))
-  (+workspace-switch "mail" t)
+  (+workspace-switch "*MAIL*" t)
   (if-let* ((buf (cl-find-if (lambda (it) (string-match-p "^\\*notmuch" (buffer-name (window-buffer it))))
                              (doom-visible-windows))))
       (select-window (get-buffer-window buf))
@@ -167,7 +167,7 @@
   (interactive)
   ;; (+popup/close (get-buffer-window "*notmuch-hello*"))
   (doom-kill-matching-buffers "^\\*notmuch")
-  (+workspace/delete "mail"))
+  (+workspace/delete "*MAIL*"))
 
 ;;;###autoload
 (defun +mail/buffer-face-mode-notmuch-show ()
