@@ -95,6 +95,12 @@
   (setq-default elcord-display-buffer-details nil)
   (elcord-mode))
 
+;; Set twitter edit buffer to be 15 lines high so I can actually see what im
+;; editing. FIXME this will be fixed upstream, remove me when it is
+(after! twittering-mode
+  (set! :popup "^\\*twittering-edit"
+    '((size . 15))
+    '((transient) (quit) (select . t))))
 
 ;; Modules
 (load! +ruby) ;; Custom ruby mode. Make sure you disable ruby in init.el
