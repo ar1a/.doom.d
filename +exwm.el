@@ -2,6 +2,8 @@
 (after! evil
   (require 'exwm)
   (require 'exwm-config)
+  (require 'exwm-systemtray)
+  (exwm-systemtray-enable)
   (setq exwm-input--line-mode-passthrough t)
 
   ;; Set the initial workspace number.
@@ -23,27 +25,40 @@
   (+exwm-bind-command "<s-return>" "urxvt")
 
 
-  ;; 's-w': Switch workspace
-  ;;By default the layer binds s-SPC to spacemacs/exwm-app-launcher but you can
-  ;;change that to something else (I use s-m) then you need to add (push ?\s-\
-  ;;exwm-input-prefix-keys) (note the two spaces between ?\s-\ and
-  ;;exwm-input-prefix-keys)) so that s-SPC is passed to emacs in EXWM buffers
-  ;;then in my .spacemacs I set dotspacemacs-emacs-leader-key "s-SPC" so that I
-  ;;can keep SPC as my usual leader key in emacs buffers as well as having s-SPC
-  ;;as my leader in EXWM buffers
   (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
+  (exwm-input-set-key (kbd "s-1") (lambda! (exwm-workspace-switch 0)))
+  (exwm-input-set-key (kbd "s-2") (lambda! (exwm-workspace-switch 1)))
+  (exwm-input-set-key (kbd "s-3") (lambda! (exwm-workspace-switch 2)))
+  (exwm-input-set-key (kbd "s-4") (lambda! (exwm-workspace-switch 3)))
   ;; s-h, s-j, s-k, s-l: move around
   (exwm-input-set-key (kbd "s-h") #'evil-window-left)
   (exwm-input-set-key (kbd "s-j") #'evil-window-down)
   (exwm-input-set-key (kbd "s-k") #'evil-window-up)
   (exwm-input-set-key (kbd "s-l") #'evil-window-right)
-  ;; lock screen
-  ;; (exwm-input-set-key (kbd "C-M-l") #'lock-screen)
-  ;; (define-key global-map (kbd "C-M-l") #'lock-screen)
+  ;; Moving windows
+  (exwm-input-set-key (kbd "s-H") #'evil-window-move-far-left)
+  (exwm-input-set-key (kbd "s-J") #'evil-window-move-very-bottom)
+  (exwm-input-set-key (kbd "s-K") #'evil-window-move-very-top)
+  (exwm-input-set-key (kbd "s-L") #'evil-window-move-far-right)
+  ;; Resizing windows
+  (exwm-input-set-key (kbd "M-s-h") #'shrink-window-horizontally)
+  (exwm-input-set-key (kbd "M-s-j") #'shrink-window)
+  (exwm-input-set-key (kbd "M-s-k") #'enlarge-window)
+  (exwm-input-set-key (kbd "M-s-l") #'enlarge-window-horizontally)
+  ;; Prefix input
   (push ?\M-m exwm-input-prefix-keys)
+  ;; Universal get me outta here
+  (push ?\C-g exwm-input-prefix-keys)
+  ;; C-c, C-x are needed for c+p
+  (delete ?\C-x exwm-input-prefix-keys)
+  (delete ?\C-c exwm-input-prefix-keys)
+  ;; We can use `M-m h' to access help
+  (delete ?\C-h exwm-input-prefix-keys)
 
-  ;; 's-&': Launch application
-  (exwm-input-set-key (kbd "s-&")
+
+  ;; 's-SPC': Launch application
+  (exwm-input-set-key (kbd "s-S-SPC") #'counsel-linux-app)
+  (exwm-input-set-key (kbd "s-SPC")
                       (lambda (command)
                         (interactive (list (read-shell-command "$ ")))
                         (start-process-shell-command command nil command)))
