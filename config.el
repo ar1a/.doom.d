@@ -134,3 +134,4 @@
 (load! +ranger) ;; File manager stuff
 (load! +reason) ;; ReasonML stuff
 (load! +mail) ;; Mail stuff
+(load! +org) ;; Org mode stuff like todos and rebindings
