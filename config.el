@@ -112,3 +112,4 @@
 (load! +mail) ;; Mail stuff
 (load! +org) ;; Org mode stuff like todos and rebindings
 (load! +irc) ;; Irc config
+(load! +twitter) ;; Twittering binds.
