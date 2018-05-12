@@ -4,10 +4,8 @@
 (after! twittering-mode
   (setq twittering-initial-timeline-spec-string '(":home" ":mentions"))
   (map! :map twittering-mode-map
-        "C" #'twittering-organic-retweet
-        "W" (lambda! (twittering-visit-timeline ":home"))
-        "Y" #'twittering-push-tweet-onto-kill-ring ;; Tweet content
         "c" #'twittering-native-retweet
+        "C" #'twittering-organic-retweet
         "d" #'twittering-delete-status
         "g" #'twittering-goto-first-status
         "j" #'twittering-goto-next-status
@@ -17,4 +15,6 @@
         "C-o" #'twittering-direct-message ;; Needed a third to do things. I guess C-o?
         "r" #'twittering-current-timeline ;; This should be refresh
         "w" #'twittering-visit-timeline
-        "y" #'twittering-push-uri-onto-kill-ring)) ;; URL under cursor or link to tweet
+        "W" (lambda! (twittering-visit-timeline ":home"))
+        "y" #'twittering-push-uri-onto-kill-ring ;; URL under cursor or link to tweet
+        "Y" #'twittering-push-tweet-onto-kill-ring)) ;; Tweet content
