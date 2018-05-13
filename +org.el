@@ -12,6 +12,10 @@
         :desc "Filter" :nve "f" #'org-match-sparse-tree
         :desc "Tag heading" :nve "t" #'org-set-tags-command)
 
+  ;; Normally its only like 3 lines tall, too hard to see anything.
+  (set! :popup "^\\*Org Agenda"
+    '((size . 15))
+    '((transient) (quit) (select . t)))
   ;; Move the agenda to show the previous 3 days and the next 7 days for a bit
   ;; better context instead of just the current week which is a bit confusing
   ;; on, for example, a sunday
