@@ -27,6 +27,17 @@
   (+exwm-bind-command "s-p" "spectacle") ;; Screenshots!
   (+exwm-bind-command "s-w" "firefox") ;; Internet
 
+  ;; Modeline
+  (def-modeline-segment! datetime
+    (current-time-string))
+  (def-modeline! main
+    (bar matches " " buffer-info "  %l:%c %p  " selection-info)
+    (buffer-encoding major-mode vcs flycheck " " datetime))
+
+  ;; Update every 5 seconds for the clock
+  (run-at-time t 5 #'force-mode-line-update)
+
+
   ;; Startup programs
   (start-process-shell-command "nm-applet" nil "nm-applet")
   (start-process-shell-command "discord" nil "discord")
