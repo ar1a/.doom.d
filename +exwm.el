@@ -23,6 +23,7 @@
       (setq key (pop bindings)
             command (pop bindings))))
   (+exwm-bind-command "<s-return>" "urxvt")
+  (+exwm-bind-command "s-X" "betterlockscreen -l blur")
 
 
   (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
