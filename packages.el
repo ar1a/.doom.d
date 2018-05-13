@@ -45,3 +45,4 @@
 
 ;; EXWM stuff
 (package! exwm)
+(package! pinentry)

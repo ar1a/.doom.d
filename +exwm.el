@@ -24,12 +24,13 @@
             command (pop bindings))))
   (+exwm-bind-command "<s-return>" "urxvt")
   (+exwm-bind-command "s-X" "betterlockscreen -l blur")
+  (+exwm-bind-command "s-p" "spectacle") ;; Screenshots!
+  (+exwm-bind-command "s-w" "qutebrowser") ;; Internet
 
   ;; Startup programs
   (start-process-shell-command "nm-applet" nil "nm-applet")
   (start-process-shell-command "discord" nil "discord")
-  (start-process-shell-command "compton" nil "compton -c ~/.config/compton.conf")
-
+  (start-process-shell-command "compton" nil "compton --config ~/.config/compton.conf")
 
   (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
   (exwm-input-set-key (kbd "s-1") (lambda! (exwm-workspace-switch 0)))
@@ -69,6 +70,8 @@
                       (lambda (command)
                         (interactive (list (read-shell-command "$ ")))
                         (start-process-shell-command command nil command)))
-
+  (def-package! pinentry
+    :config
+    (pinentry-start))
   ;; Enable EXWM
   (exwm-enable))
