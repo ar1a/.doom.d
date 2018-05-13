@@ -25,18 +25,22 @@
   (+exwm-bind-command "<s-return>" "urxvt")
   (+exwm-bind-command "s-X" "betterlockscreen -l blur")
   (+exwm-bind-command "s-p" "spectacle") ;; Screenshots!
-  (+exwm-bind-command "s-w" "qutebrowser") ;; Internet
+  (+exwm-bind-command "s-w" "firefox") ;; Internet
 
   ;; Startup programs
   (start-process-shell-command "nm-applet" nil "nm-applet")
   (start-process-shell-command "discord" nil "discord")
   (start-process-shell-command "compton" nil "compton --config ~/.config/compton.conf")
 
-  (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
+  ;; (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
   (exwm-input-set-key (kbd "s-1") (lambda! (exwm-workspace-switch 0)))
+  (exwm-input-set-key (kbd "s-!") (lambda! (exwm-workspace-move-window 0)))
   (exwm-input-set-key (kbd "s-2") (lambda! (exwm-workspace-switch 1)))
+  (exwm-input-set-key (kbd "s-@") (lambda! (exwm-workspace-move-window 1)))
   (exwm-input-set-key (kbd "s-3") (lambda! (exwm-workspace-switch 2)))
+  (exwm-input-set-key (kbd "s-#") (lambda! (exwm-workspace-move-window 2)))
   (exwm-input-set-key (kbd "s-4") (lambda! (exwm-workspace-switch 3)))
+  (exwm-input-set-key (kbd "s-$") (lambda! (exwm-workspace-move-window 3)))
   ;; s-h, s-j, s-k, s-l: move around
   (exwm-input-set-key (kbd "s-h") #'evil-window-left)
   (exwm-input-set-key (kbd "s-j") #'evil-window-down)
