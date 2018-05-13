@@ -25,6 +25,11 @@
   (+exwm-bind-command "<s-return>" "urxvt")
   (+exwm-bind-command "s-X" "betterlockscreen -l blur")
 
+  ;; Startup programs
+  (start-process-shell-command "nm-applet" nil "nm-applet")
+  (start-process-shell-command "discord" nil "discord")
+  (start-process-shell-command "compton" nil "compton -c ~/.config/compton.conf")
+
 
   (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
   (exwm-input-set-key (kbd "s-1") (lambda! (exwm-workspace-switch 0)))
@@ -50,9 +55,10 @@
   (push ?\M-m exwm-input-prefix-keys)
   ;; Universal get me outta here
   (push ?\C-g exwm-input-prefix-keys)
-  ;; C-c, C-x are needed for c+p
+  ;; C-c, C-x, C-v are needed for c+p
   (delete ?\C-x exwm-input-prefix-keys)
   (delete ?\C-c exwm-input-prefix-keys)
+  (delete ?\C-v exwm-input-prefix-keys)
   ;; We can use `M-m h' to access help
   (delete ?\C-h exwm-input-prefix-keys)
 
