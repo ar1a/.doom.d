@@ -387,7 +387,10 @@
          :bool "bool"
 
          :not "not"
-         :and "&&" :or "||")))
+         :and "&&" :or "||"))
+      blank-pretty-pairs ;; Blank so the above ones apply
+      (pretty-code-get-pairs
+       '()))
 
 
 (pretty-code-set-pairs `((js2-mode-hook ,js2-pretty-pairs)
@@ -397,6 +400,7 @@
                          (c++-mode-hook ,c-pretty-pairs)
                          (python-mode-hook ,py-pretty-pairs)
                          (emacs-lisp-mode-hook ,lisp-pretty-pairs)
+                         (haskell-mode-hook ,blank-pretty-pairs)
                          (elm-mode-hook ,elm-pretty-pairs)
                          (reason-mode-hook ,elm-pretty-pairs))) ;; temp
 
