@@ -37,11 +37,14 @@
   ;; Update every 5 seconds for the clock
   (run-at-time t 5 #'force-mode-line-update)
 
-
   ;; Startup programs
   (start-process-shell-command "nm-applet" nil "nm-applet")
   (start-process-shell-command "discord" nil "discord")
   (start-process-shell-command "compton" nil "compton --config ~/.config/compton.conf")
+
+  (defun +bind (key fun)
+    "Bind KEY to FUN in exwm."
+    (exwm-input-set-key (kbd key) fun))
 
   ;; (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
   (exwm-input-set-key (kbd "s-1") (lambda! (exwm-workspace-switch 0)))
@@ -53,20 +56,20 @@
   (exwm-input-set-key (kbd "s-4") (lambda! (exwm-workspace-switch 3)))
   (exwm-input-set-key (kbd "s-$") (lambda! (exwm-workspace-move-window 3)))
   ;; s-h, s-j, s-k, s-l: move around
-  (exwm-input-set-key (kbd "s-h") #'evil-window-left)
-  (exwm-input-set-key (kbd "s-j") #'evil-window-down)
-  (exwm-input-set-key (kbd "s-k") #'evil-window-up)
-  (exwm-input-set-key (kbd "s-l") #'evil-window-right)
+  (+bind "s-h" #'evil-window-left)
+  (+bind "s-j" #'evil-window-down)
+  (+bind "s-k" #'evil-window-up)
+  (+bind "s-l" #'evil-window-right)
   ;; Moving windows
-  (exwm-input-set-key (kbd "s-H") #'evil-window-move-far-left)
-  (exwm-input-set-key (kbd "s-J") #'evil-window-move-very-bottom)
-  (exwm-input-set-key (kbd "s-K") #'evil-window-move-very-top)
-  (exwm-input-set-key (kbd "s-L") #'evil-window-move-far-right)
+  (+bind "s-H" #'evil-window-move-far-left)
+  (+bind "s-J" #'evil-window-move-very-bottom)
+  (+bind "s-K" #'evil-window-move-very-top)
+  (+bind "s-L" #'evil-window-move-far-right)
   ;; Resizing windows
-  (exwm-input-set-key (kbd "M-s-h") #'shrink-window-horizontally)
-  (exwm-input-set-key (kbd "M-s-j") #'shrink-window)
-  (exwm-input-set-key (kbd "M-s-k") #'enlarge-window)
-  (exwm-input-set-key (kbd "M-s-l") #'enlarge-window-horizontally)
+  (+bind "M-s-h" #'shrink-window-horizontally)
+  (+bind "M-s-j" #'shrink-window)
+  (+bind "M-s-k" #'enlarge-window)
+  (+bind "M-s-l" #'enlarge-window-horizontally)
   ;; Prefix input
   (push ?\M-m exwm-input-prefix-keys)
   ;; Universal get me outta here
