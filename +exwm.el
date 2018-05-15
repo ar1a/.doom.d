@@ -71,7 +71,9 @@
   (+bind "M-s-k" #'enlarge-window)
   (+bind "M-s-l" #'enlarge-window-horizontally)
   ;; Buffer swapping
-  (+bind "s-b" #'ivy-switch-buffer)
+  (if (featurep! :completion ivy)
+      (+bind "s-b" #'ivy-switch-buffer)
+    (+bind "s-b" #'helm-mini))
   ;; Terminal
   (+bind "<s-return>" #'+eshell/open)
   ;; Prefix input
