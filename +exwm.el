@@ -23,6 +23,7 @@
       (setq key (pop bindings)
             command (pop bindings))))
   (+exwm-bind-command "<s-S-return>" "urxvt")
+  (+exwm-bind-command "<s-return>" "xterm")
   (+exwm-bind-command "s-X" "betterlockscreen -l blur")
   (+exwm-bind-command "s-p" "spectacle") ;; Screenshots!
   (+exwm-bind-command "s-w" "firefox") ;; Internet
@@ -74,8 +75,6 @@
   (if (featurep! :completion ivy)
       (+bind "s-b" #'ivy-switch-buffer)
     (+bind "s-b" #'helm-mini))
-  ;; Terminal
-  (+bind "<s-return>" #'+eshell/open)
   ;; Prefix input
   (push ?\M-m exwm-input-prefix-keys)
   ;; Universal get me outta here
