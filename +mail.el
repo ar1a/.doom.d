@@ -77,7 +77,10 @@
             :nmv "i"     #'+mail/open-message-with-mail-app-notmuch-show
             :nmv "I"     #'notmuch-show-view-all-mime-parts
             :nmv "q"     #'notmuch-bury-or-kill-this-buffer
-            :nmv "s"     #'counsel-notmuch
+            (:when (featurep! :completion ivy)
+              :nmv "s"     #'counsel-notmuch)
+            (:when (featurep! :completion helm)
+              :nmv "s"     #'helm-notmuch)
             :nmv "t"     #'notmuch-tree-from-show-current-query
             :nmv "N"   #'notmuch-mua-new-mail
             :nmv "n"     #'notmuch-show-next-thread-show
@@ -92,7 +95,10 @@
             :nmv "n"   #'notmuch-mua-new-mail
             :nmv "N" #'notmuch-mua-new-mail
             :nmv "j"   #'widget-forward
-            :nmv "s"   #'counsel-notmuch
+            (:when (featurep! :completion ivy)
+              :nmv "s"     #'counsel-notmuch)
+            (:when (featurep! :completion helm)
+              :nmv "s"     #'helm-notmuch)
             :nmv "q"   #'+mail/quit
             :nmv "e"   #'+mail/notmuch-update
             :nmv "r"   #'notmuch-hello-update)
@@ -100,8 +106,8 @@
             :nmv "j"   #'notmuch-search-next-thread
             :nmv "k"   #'notmuch-search-previous-thread
             :nmv "t"   #'notmuch-tree-from-search-thread
-            :nmv "RET"   #'notmuch-tree-from-search-thread
-            ;; :nmv "RET" #'notmuch-search-show-thread
+            ;; :nmv "RET"   #'notmuch-tree-from-search-thread
+            :nmv "RET" #'notmuch-search-show-thread
             :nmv "N" #'notmuch-mua-new-mail
             :nmv "T"   #'notmuch-tree-from-search-current-query
             :nmv ";"   #'notmuch-search-tag
@@ -113,13 +119,19 @@
             :nmv "q"   #'+mail/quit
             :nmv "R"   #'notmuch-search-reply-to-thread-sender
             :nmv "r"   #'notmuch-search-reply-to-thread
-            :nmv "s"   #'counsel-notmuch
+            (:when (featurep! :completion ivy)
+              :nmv "s"     #'counsel-notmuch)
+            (:when (featurep! :completion helm)
+              :nmv "s"     #'helm-notmuch)
             :nmv "x"   #'+mail/notmuch-search-spam)
           (:map notmuch-tree-mode-map
             :nmv "j"   #'notmuch-tree-next-message
             :nmv "k"   #'notmuch-tree-prev-message
             :nmv "S"   #'notmuch-search-from-tree-current-query
-            :nmv "s"   #'counsel-notmuch
+            (:when (featurep! :completion ivy)
+              :nmv "s"     #'counsel-notmuch)
+            (:when (featurep! :completion helm)
+              :nmv "s"     #'helm-notmuch)
             :nmv "t"   #'notmuch-tree
             :nmv ";"   #'notmuch-tree-tag
             :nmv "RET" #'notmuch-tree-show-message
@@ -139,9 +151,15 @@
             :desc "Attach file"         :n "f" #'mml-attach-file))))
 
 ;;;; counsel-notmuch
-(def-package! counsel-notmuch
-  :commands counsel-notmuch
-  :after notmuch)
+(when (featurep! :completion ivy)
+  (def-package! counsel-notmuch
+    :commands counsel-notmuch
+    :after notmuch))
+;;;; helm-notmuch
+(when (featurep! :completion helm)
+  (def-package! helm-notmuch
+    :commands helm-notmuch
+    :after notmuch))
 ;;;; org-mime
 (def-package! org-mime
   :after (org notmuch))

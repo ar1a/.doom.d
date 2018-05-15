@@ -40,7 +40,9 @@
 
 ;; Email stuff
 (package! notmuch)
-(package! counsel-notmuch)
+(if (featurep! :completion ivy)
+    (package! counsel-notmuch)
+  (package! helm-notmuch))
 (package! org-mime)
 
 ;; Fish completion
