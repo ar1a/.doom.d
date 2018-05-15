@@ -43,6 +43,9 @@
 (package! counsel-notmuch)
 (package! org-mime)
 
+;; Fish completion
+(package! fish-completion)
+
 ;; EXWM stuff
 (package! exwm)
 (package! pinentry)

@@ -94,6 +94,10 @@
 ;;   (setq-default elcord-display-buffer-details nil)
 ;;   (elcord-mode))
 
+(when (and (executable-find "fish")
+           (require 'fish-completion nil t))
+  (global-fish-completion-mode))
+
 ;; Set twitter edit buffer to be 15 lines high so I can actually see what im
 ;; editing. FIXME this will be fixed upstream, remove me when it is
 (after! twittering-mode
