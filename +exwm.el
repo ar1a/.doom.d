@@ -22,7 +22,7 @@
                              (start-process-shell-command ,command nil ,command)))
       (setq key (pop bindings)
             command (pop bindings))))
-  (+exwm-bind-command "<s-return>" "urxvt")
+  (+exwm-bind-command "<s-S-return>" "urxvt")
   (+exwm-bind-command "s-X" "betterlockscreen -l blur")
   (+exwm-bind-command "s-p" "spectacle") ;; Screenshots!
   (+exwm-bind-command "s-w" "firefox") ;; Internet
@@ -70,6 +70,10 @@
   (+bind "M-s-j" #'shrink-window)
   (+bind "M-s-k" #'enlarge-window)
   (+bind "M-s-l" #'enlarge-window-horizontally)
+  ;; Buffer swapping
+  (+bind "s-b" #'ivy-switch-buffer)
+  ;; Terminal
+  (+bind "<s-return>" #'+eshell/open)
   ;; Prefix input
   (push ?\M-m exwm-input-prefix-keys)
   ;; Universal get me outta here
