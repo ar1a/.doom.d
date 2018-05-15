@@ -109,7 +109,16 @@
         helm-projectile-fuzzy-match t)
   (map! :leader
         (:prefix "/"
-          :nv "p" #'helm-do-ag-project-root))) ;; This is bound to ivy project search in :config default +bindings
+          ;; This is bound to ivy project search in :config default +bindings
+          :nv "p" #'helm-do-ag-project-root)))
+
+(after! eshell
+  (add-hook! eshell-mode
+    (eshell-cmpl-initialize)
+    (map! :map eshell-mode-map
+          [remap eshell-pcomplete] #'helm-esh-pcomplete
+          "M-p" #'helm-eshell-history))
+  (load! eshell-completion))
 
 ;; Set twitter edit buffer to be 15 lines high so I can actually see what im
 ;; editing. FIXME this will be fixed upstream, remove me when it is
