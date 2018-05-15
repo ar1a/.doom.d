@@ -43,8 +43,3 @@
             (save-current-buffer (neotree-find))))))
 
 (load! +symbols)
-
-;; TODO: remove me
-;; disable line numbers
-;; because its broken on my font
-(add-hook! :append prog-mode #'doom|disable-line-numbers)
