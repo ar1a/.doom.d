@@ -3,9 +3,6 @@
 (setq doom-leader-key "M-m"
       doom-localleader-key "M-m m")
 (doom! :feature
-       (popup            ; tame sudden yet inevitable temporary windows
-        +all             ; catch all popups that start with an asterix
-        +defaults)       ; default popup rules
                                         ;debugger          ; FIXME stepping through code, to help you add bugs
        eval              ; run code, run (also, repls)
        (evil +everywhere); come to the dark side, we have cookies
@@ -41,6 +38,10 @@
        unicode           ; extended unicode support for various languages
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
+       (popup            ; tame sudden yet inevitable temporary windows
+        +all             ; catch all popups that start with an asterix
+        +defaults)       ; default popup rules
+       neotree           ; a project drawer, like NERDTree for vim
 
        :tools
        dired             ; making dired pretty [functional]
@@ -52,7 +53,6 @@
                                         ;macos             ; MacOS-specific commands
        make              ; run make tasks from Emacs
        magit             ;
-       neotree           ; a project drawer, like NERDTree for vim
        password-store    ; password manager for nerds
        pdf               ; pdf enhancements
                                         ;rgb               ; creating color strings

@@ -1,4 +1,4 @@
-;;;  -*- lexical-binding: t; -*-
+;;;  -*- no-byte-compile: t; -*-
 
 ;; Ruby stuff
 (package! enh-ruby-mode)
