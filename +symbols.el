@@ -401,6 +401,7 @@
                          (python-mode-hook ,py-pretty-pairs)
                          (emacs-lisp-mode-hook ,lisp-pretty-pairs)
                          (haskell-mode-hook ,blank-pretty-pairs)
+                         (elixir-mode-hook ,blank-pretty-pairs)
                          (elm-mode-hook ,elm-pretty-pairs)
                          (reason-mode-hook ,elm-pretty-pairs))) ;; temp
 
