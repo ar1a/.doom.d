@@ -243,14 +243,16 @@
   (interactive)
   (let* ((msg-path (car (plist-get (notmuch-tree-get-message-properties) :filename)))
          (temp (make-temp-file "notmuch-message-" nil ".eml")))
-    (start-process-shell-command "email" nil (format "cp '%s' '%s'; xdg-open '%s'" msg-path temp temp temp))))
+    (shell-command-to-string (format "cp '%s' '%s'" msg-path temp))
+    (start-process-shell-command "email" nil (format "xdg-open '%s'" temp))))
 
 ;;;###autoload
 (defun +mail/open-message-with-mail-app-notmuch-show ()
   (interactive)
   (let* ((msg-path (car (plist-get (notmuch-show-get-message-properties) :filename)))
          (temp (make-temp-file "notmuch-message-" nil ".eml")))
-    (start-process-shell-command "email" nil (format "cp '%s' '%s'; xdg-open '%s'" msg-path temp temp temp))))
+    (shell-command-to-string (format "cp '%s' '%s'" msg-path temp))
+    (start-process-shell-command "email" nil (format "xdg-open '%s'" temp))))
 
 
 
