@@ -9,8 +9,7 @@
        file-templates    ; auto-snippets for empty files
        (lookup           ; helps you navigate your code and documentation
         +devdocs)         ; ...on devdocs.io online
-        ;; +docsets)        ; ...or in Dash docsets locally
-       services          ; TODO managing external services & code builders
+       ;; +docsets)        ; ...or in Dash docsets locally
        snippets          ; my elves. They type so I don't have to
        spellcheck        ; tasing you for misspelling mispelling
        (syntax-checker) ;;+childframe)    ; tasing you for every semicolon you forget
@@ -20,15 +19,15 @@
        :completion
        (company
         +auto)
-        ;+childframe
-        ;the ultimate code completion backend
-        helm              ; the *other* search engine for love and life
-        ;ido               ; the other *other* search engine...
+                                        ;+childframe
+                                        ;the ultimate code completion backend
+       helm              ; the *other* search engine for love and life
+                                        ;ido               ; the other *other* search engine...
        ;; (ivy) ;;+childframe)               ; a search engine for love and life
 
        :ui
        doom              ; what makes DOOM look the way it does
-       ;doom-dashboard    ; a nifty splash screen for Emacs
+                                        ;doom-dashboard    ; a nifty splash screen for Emacs
        doom-modeline     ; a snazzy Atom-inspired mode-line
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
        evil-goggles      ; display visual hints when editing in evil
@@ -55,6 +54,7 @@
        magit             ;
        password-store    ; password manager for nerds
        pdf               ; pdf enhancements
+       prodigy
                                         ;rgb               ; creating color strings
        rotate-text       ; cycle region at point between text candidates
        term              ; terminals in Emacs
@@ -98,7 +98,7 @@
        purescript        ; javascript, but functional
        python            ; beautiful is better than ugly
        rest              ; Emacs as a REST client
-       ;ruby              ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+                                        ;ruby              ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        scala             ; java, but good
        sh                ; she sells (ba|z)sh shells on the C xor
