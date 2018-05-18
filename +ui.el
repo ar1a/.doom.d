@@ -10,7 +10,7 @@
 ;; Change theme.
 ;; Nord is pretty cool: https://github.com/arcticicestudio/nord
 ;; A nice alternative (although brighter) could be: nova - https://trevordmiller.com/projects/nova
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-opera)
 
 ;; Magit rules
 ;; Keeps it on the side
