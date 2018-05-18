@@ -9,6 +9,8 @@
   :commands (enh-ruby-mode)
   :config
   (add-hook 'enh-ruby-mode-hook #'flycheck-mode)
+  (set! :electric 'enh-ruby-mode :words '("else" "end" "elseif"))
+
 
   (defun tab-or-snippet-expand ()
     (interactive)
@@ -40,4 +42,9 @@
         :nv "rrp" #'rubocop-check-project
         :nv "rrP" #'rubocop-autocorrect-project))
 
+;;
+(after! smartparens-ruby
+  (sp-local-pair 'enh-ruby-mode "{" "}"
+                 :pre-handlers '(:rem sp-ruby-prehandler)
+                 :post-handlers '(:rem sp-ruby-posthandler)))
 
