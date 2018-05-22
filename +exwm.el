@@ -26,7 +26,7 @@
   (+exwm-bind-command "<s-return>" "xterm")
   (+exwm-bind-command "s-X" "betterlockscreen -l blur")
   (+exwm-bind-command "s-p" "spectacle") ;; Screenshots!
-  (+exwm-bind-command "s-w" "firefox") ;; Internet
+  (+exwm-bind-command "s-w" "qutebrowser") ;; Internet
 
   ;; Modeline
   (def-modeline-segment! datetime
