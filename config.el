@@ -114,8 +114,9 @@
         helm-recentf-fuzzy-match t
         helm-projectile-fuzzy-match t)
   ;; I want backspace to go up a level, like ivy
-  ;; (map! :map helm-find-files-map
-  ;;       "<DEL>" #'helm-find-files-up-one-level)
+  (if (boundp 'helm-find-files-map)
+    (map! :map helm-find-files-map
+          "<DEL>" #'helm-find-files-up-one-level))
   (map! :leader
         (:prefix "/"
           ;; This is bound to ivy project search in :config default +bindings
