@@ -36,9 +36,15 @@
           (funcall (cdr my-pair)))))
 
 
+;; Prettier in .tsx
 (after! web-mode
   (add-hook! web-mode (enable-minor-mode '("\\.tsx\\'" . setup-prettier-js))))
 
+;; Fix an upstream bug in rjsx-mode
+(after! rjsx-mode
+  (defun +javascript|reparse (n)
+    (if (= n 1)
+        (rjsx-maybe-reparse))))
 
 (after! typescript-mode
   (defun tslint-fix-file ()
