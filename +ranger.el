@@ -1,9 +1,7 @@
 ;;;  -*- lexical-binding: t; -*-
 
 (def-package! ranger
-  :commands (ranger deer ranger-override-dired-fn)
-  :config
-  (setq-default ranger-preview-file nil)) ;; The file preview is buggy for me so I disable it.
+  :commands (ranger deer ranger-override-dired-fn))
 
 (map!
  (:leader
