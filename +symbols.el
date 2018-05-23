@@ -382,9 +382,9 @@
          :null
          "null"
          :true "true" :false "false"
-         :int "int" :str "string"
-         :float "float"
-         :bool "bool"
+         :int "Int" :str "String"
+         :float "Float"
+         :bool "Bool"
 
          :not "not"
          :and "&&" :or "||"))
