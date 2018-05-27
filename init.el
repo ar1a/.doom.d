@@ -2,6 +2,16 @@
 
 (setq doom-leader-key "M-m"
       doom-localleader-key "M-m m")
+
+(defun +fix-evil-collection-helm ()
+  (when (with-current-buffer (helm-buffer-get) helm-echo-input-in-header-line)
+    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+      (overlay-put ov 'window (selected-window))
+      (overlay-put ov 'face (let ((bg-color (face-background 'default nil)))
+                              `(:background ,bg-color :foreground ,bg-color)))
+      (setq-local cursor-type nil))))
+(advice-add #'evil-collection-helm-hide-minibuffer-maybe :override
+            #'+fix-evil-collection-helm)
 (doom! :feature
                                         ;debugger          ; FIXME stepping through code, to help you add bugs
        eval              ; run code, run (also, repls)
@@ -18,12 +28,12 @@
 
        :completion
        (company
-        +auto)
-                                        ;+childframe
+        +auto
+        +childframe)
                                         ;the ultimate code completion backend
        helm              ; the *other* search engine for love and life
                                         ;ido               ; the other *other* search engine...
-       ;; (ivy) ;;+childframe)               ; a search engine for love and life
+       ;;ivy ;;+childframe)               ; a search engine for love and life
 
        :ui
        doom              ; what makes DOOM look the way it does
