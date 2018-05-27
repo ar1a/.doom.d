@@ -1,8 +1,5 @@
 ;;;  -*- lexical-binding: t; -*-
-(require 'flow-minor-mode)
-(require 'company-flow)
 (require 'prettier-js)
-(require 'flycheck-flow)
 
 (setq-default evil-shift-width 2) ;; I normally use 2wide for my projects.
 
@@ -18,8 +15,6 @@
   (setq ivy-re-builders-alist
         '((t . ivy--regex-fuzzy))))
 
-(after! tide
-  (set! :company-backend 'tide-mode 'company-flow 'company-tide))
 (defun setup-prettier-js ()
   "Sets up arguments and the mode."
   (interactive)
@@ -71,9 +66,6 @@
 (after! js2-mode
   ;; use eslintd-fix so when i save it fixes dumb shit
   (add-hook 'js2-mode-hook #'eslintd-fix-mode)
-
-  ;; FLOW STUFF
-  (add-hook 'js2-mode-hook #'flow-minor-enable-automatically)
 
   ;; Prettier shit
   (add-hook 'js2-mode-hook #'setup-prettier-js)
