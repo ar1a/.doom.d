@@ -1,7 +1,8 @@
 ;;;  -*- lexical-binding: t; -*-
 
-;; Make sure you have the fonts in fonts.tar.gz installed
+(require 'dash)
 
+;; Make sure you have the fonts in fonts.tar.gz installed
 (set-fontset-font t '(#xe100 . #xe16f) "Iosevka")
 (defun setup-iosevka-ligatures ()
   (setq prettify-symbols-alist
