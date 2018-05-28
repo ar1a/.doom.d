@@ -26,6 +26,13 @@
        version-control   ; remember, remember that commit in November
        workspaces        ; tab emulation, persistence & separate workspaces
 
+       :emacs
+       dired             ; making dired pretty [functional]
+       electric-indent   ; smarter, keyword-based electric-indent
+       eshell            ; a consistent, cross-platform shell (WIP)
+       imenu             ; an imenu sidebar and searchable code index
+       term              ; terminals in Emacs
+
        :completion
        (company
         +auto)
@@ -53,11 +60,7 @@
        neotree           ; a project drawer, like NERDTree for vim
 
        :tools
-       dired             ; making dired pretty [functional]
-       electric-indent   ; smarter, keyword-based electric-indent
-       eshell            ; a consistent, cross-platform shell (WIP)
        gist              ; interacting with github gists
-       imenu             ; an imenu sidebar and searchable code index
        impatient-mode    ; show off code over HTTP
                                         ;macos             ; MacOS-specific commands
        make              ; run make tasks from Emacs
@@ -67,7 +70,6 @@
        prodigy
                                         ;rgb               ; creating color strings
        rotate-text       ; cycle region at point between text candidates
-       term              ; terminals in Emacs
        tmux              ; an API for interacting with tmux
        upload            ; map local to remote projects via ssh/ftp
        editorconfig      ; editorconfig

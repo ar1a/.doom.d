@@ -42,4 +42,4 @@
             ;; We need to trigger neotree-find then switch back to the buffer we just opened
             (save-current-buffer (neotree-find))))))
 
-(load! +symbols)
+(load! "+symbols")

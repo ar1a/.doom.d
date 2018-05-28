@@ -235,7 +235,7 @@
                                          ("<+>" . #Xe1cb)
                                          ("+>" . #Xe1cc)))))
 
-(load! prettify-utils) ;; https://github.com/Ilazki/prettify-utils.el/blob/master/prettify-utils.el
+(load! "prettify-utils") ;; https://github.com/Ilazki/prettify-utils.el/blob/master/prettify-utils.el
 
 ;; Grabbed this from https://github.com/ekaschalk/.spacemacs.d/blob/master/layers/display/local/pretty-code/pretty-code.el
 (defvar pretty-code-choices

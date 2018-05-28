@@ -11,6 +11,9 @@
         :desc "Refile" :nve "r" #'org-refile
         :desc "Filter" :nve "f" #'org-match-sparse-tree
         :desc "Tag heading" :nve "t" #'org-set-tags-command)
+  ;; The standard unicode characters are usually misaligned depending on the font.
+  ;; This bugs me. Personally, markdown #-marks for headlines are more elegant.
+  (setq org-bullets-bullet-list '("#"))
 
   ;; Normally its only like 3 lines tall, too hard to see anything.
   (set! :popup "^\\*Org Agenda"

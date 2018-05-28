@@ -120,7 +120,7 @@
     (map! :map eshell-mode-map
           [remap eshell-pcomplete] #'helm-esh-pcomplete
           "M-p" #'helm-eshell-history))
-  (load! eshell-completion))
+  (load! "eshell-completion"))
 
 ;; Set twitter edit buffer to be 15 lines high so I can actually see what im
 ;; editing. FIXME this will be fixed upstream, remove me when it is
@@ -130,14 +130,14 @@
     '((transient) (quit) (select . t))))
 
 ;; Modules
-(load! +ruby) ;; Custom ruby mode. Make sure you disable ruby in init.el
-(load! +ui) ;; My ui mods. Also contains ligature stuff.
-(load! +lisp) ;; Addon for lisp* modes. Check out https://shaunlebron.github.io/parinfer/
-(load! +music) ;; Music stuff, visible through SPC-a-m. Not perfect.
-(load! +ranger) ;; File manager stuff
-(load! +reason) ;; ReasonML stuff
-(load! +mail) ;; Mail stuff
-(load! +org) ;; Org mode stuff like todos and rebindings
-(load! +irc) ;; Irc config
-(load! +twitter) ;; Twittering binds.
-(load! +exwm) ;; Emacs as a window manager!
+(load! "+ruby") ;; Custom ruby mode. Make sure you disable ruby in init.el
+(load! "+ui") ;; My ui mods. Also contains ligature stuff.
+(load! "+lisp") ;; Addon for lisp* modes. Check out https://shaunlebron.github.io/parinfer/
+(load! "+music") ;; Music stuff, visible through SPC-a-m. Not perfect.
+(load! "+ranger") ;; File manager stuff
+(load! "+reason") ;; ReasonML stuff
+(load! "+mail") ;; Mail stuff
+(load! "+org") ;; Org mode stuff like todos and rebindings
+(load! "+irc") ;; Irc config
+(load! "+twitter") ;; Twittering binds.
+(load! "+exwm") ;; Emacs as a window manager!
