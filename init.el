@@ -1,8 +1,5 @@
 ;;;  -*- lexical-binding: t; -*-
 
-(setq doom-leader-key "M-m"
-      doom-localleader-key "M-m m")
-
 (defun +fix-evil-collection-helm ()
   (when (with-current-buffer (helm-buffer-get) helm-echo-input-in-header-line)
     (let ((ov (make-overlay (point-min) (point-max) nil nil t)))

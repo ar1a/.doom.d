@@ -44,7 +44,3 @@
 
 ;; Fish completion
 (package! fish-completion)
-
-;; EXWM stuff
-(package! exwm)
-(package! pinentry)
