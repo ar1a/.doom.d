@@ -42,21 +42,6 @@
         (rjsx-maybe-reparse))))
 
 (after! typescript-mode
-  (defun tslint-fix-file ()
-    "Tslint fix file."
-    (interactive)
-    (message (concat "tslint --fixing the file " (buffer-file-name)))
-    (shell-command (concat "tslint --fix " (buffer-file-name))))
-
-  (defun tslint-fix-file-and-revert ()
-    "Format the current file with Tslint."
-    (interactive)
-    (when (eq major-mode 'typescript-mode)
-      (if (executable-find "tslint")
-          (tslint-fix-file)
-        (message "Tslint not found."))))
-
-  (add-hook 'after-save-hook #'tslint-fix-file-and-revert)
   (add-hook 'typescript-mode-hook #'flycheck-mode)
   ;; Prettier shit
   (add-hook 'typescript-mode-hook #'setup-prettier-js)
