@@ -33,7 +33,7 @@
 (package! reason-mode)
 
 ;; Discord stuff
-(package! elcord)
+;; (package! elcord)
 
 ;; Email stuff
 (package! notmuch)
