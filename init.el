@@ -58,7 +58,6 @@
 
        :tools
        gist              ; interacting with github gists
-       impatient-mode    ; show off code over HTTP
                                         ;macos             ; MacOS-specific commands
        make              ; run make tasks from Emacs
        magit             ;
@@ -112,7 +111,6 @@
        scala             ; java, but good
        sh                ; she sells (ba|z)sh shells on the C xor
        swift             ; who asked for emoji variables?
-       typescript        ; javascript, but better
        web               ; the tubes
 
        ;; Applications are complex and opinionated modules that transform Emacs
