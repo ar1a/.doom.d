@@ -3,6 +3,7 @@
 ;; it calls isn't autoloaded
 
 (def-package! parinfer
+  :commands (parinfer-mode)
   :config
   (setq parinfer-extensions
         '(defaults
