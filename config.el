@@ -76,6 +76,9 @@
 ;;   :init
 ;;   (setq-default elcord-display-buffer-details nil)
 ;;   (elcord-mode))
+(def-package! posframe
+  :after helm)
+
 (after! helm
   ;; helm disables fuzzy matching but actually I want that
   (setq
@@ -85,6 +88,26 @@
         helm-M-x-fuzzy-match t
         helm-recentf-fuzzy-match t
         helm-projectile-fuzzy-match t)
+
+  ;; Posframe!
+  ;; https://www.reddit.com/r/emacs/comments/80bdck/using_a_posframe_to_show_ivys_candidate_menu/dvcsarc
+  (defvar helm-posframe-buffer nil)
+
+  (defun helm-posframe-display (buffer &optional _resume)
+    (posframe-show
+      (setq helm-posframe-buffer buffer)
+      :poshandler #'posframe-poshandler-frame-bottom-left-corner
+      :left-fringe 10
+      :width (window-width)
+      :height 16 ;; ivy/+childframe uses 16
+      :respect-header-line t))
+
+  (defun helm-posframe-cleanup ()
+    (posframe-hide helm-posframe-buffer))
+
+  (add-hook! 'helm-cleanup-hook #'helm-posframe-cleanup)
+  (setq helm-display-function #'helm-posframe-display)
+
   ;; I want backspace to go up a level, like ivy
   (add-hook! 'helm-find-files-after-init-hook
     (map! :map helm-find-files-map

@@ -42,5 +42,8 @@
   (package! helm-notmuch))
 (package! org-mime)
 
+;; Helm stuff
+(package! posframe)
+
 ;; Fish completion
 (package! fish-completion)
