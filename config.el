@@ -35,12 +35,6 @@
 (after! web-mode
   (add-hook! web-mode (enable-minor-mode '("\\.tsx\\'" . setup-prettier-js))))
 
-;; Fix an upstream bug in rjsx-mode
-(after! rjsx-mode
-  (defun +javascript|reparse (n)
-    (if (= n 1)
-        (rjsx-maybe-reparse))))
-
 (after! typescript-mode
   (add-hook 'typescript-mode-hook #'flycheck-mode)
   ;; Prettier shit
@@ -65,7 +59,7 @@
   (setq web-mode-markup-indent-offset 2 ;; Indentation
         web-mode-code-indent-offset 2
         web-mode-enable-auto-quoting nil ;; disbale adding "" after an =
-        web-mode-auto-close-style 2)) ;; Close on > and </ not just </
+        web-mode-auto-close-style 3)) ;; RJSX-mode style closing
 
 (after! elm
   (setq elm-tags-on-save t
