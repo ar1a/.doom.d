@@ -33,7 +33,7 @@
 
 (map! :leader
       (:prefix "o"
-        :nvm "a" (lambda! (org-agenda nil "a")))
+        :desc "Org Agenda" :nvm "a" (lambda! (org-agenda nil "a")))
       (:when (featurep! :completion helm)
         :nv "X" #'helm-org-capture-templates))
 
