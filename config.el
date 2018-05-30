@@ -10,11 +10,6 @@
 (after! yasnippet
   (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
 
-;; Use fuzzy searching for finding files
-(after! ivy
-  (setq ivy-re-builders-alist
-        '((t . ivy--regex-fuzzy))))
-
 (defun setup-prettier-js ()
   "Sets up arguments and the mode."
   (interactive)
