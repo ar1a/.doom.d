@@ -32,9 +32,6 @@
 ;; Reasonml stuff
 (package! reason-mode)
 
-;; Discord stuff
-;; (package! elcord)
-
 ;; Email stuff
 (package! notmuch)
 (if (featurep! :completion ivy)

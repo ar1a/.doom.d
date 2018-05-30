@@ -63,12 +63,6 @@
   (setq elm-tags-on-save t
         elm-sort-imports-on-save t))
 
-;; (def-package! elcord
-;;   :commands elcord-mode
-;;   :init
-;;   (setq-default elcord-display-buffer-details nil)
-;;   (elcord-mode))
-
 (after! helm
   ;; helm disables fuzzy matching but actually I want that
   (setq
