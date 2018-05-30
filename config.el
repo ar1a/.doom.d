@@ -64,17 +64,6 @@
         elm-sort-imports-on-save t))
 
 (after! helm
-  ;; helm disables fuzzy matching but actually I want that
-  (setq
-        helm-mode-fuzzy-match t
-        helm-buffers-fuzzy-matching t
-        helm-apropos-fuzzy-match t
-        helm-M-x-fuzzy-match t
-        helm-recentf-fuzzy-match t
-        helm-projectile-fuzzy-match t)
-  ;; When I hit down, i want it to go over sources.
-  (setq helm-move-to-line-cycle-in-source nil)
-
   ;; I want backspace to go up a level, like ivy
   (add-hook! 'helm-find-files-after-init-hook
     (map! :map helm-find-files-map
