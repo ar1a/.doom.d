@@ -78,6 +78,8 @@
         helm-M-x-fuzzy-match t
         helm-recentf-fuzzy-match t
         helm-projectile-fuzzy-match t)
+  ;; When I hit down, i want it to go over sources.
+  (setq helm-move-to-line-cycle-in-source nil)
 
   ;; I want backspace to go up a level, like ivy
   (add-hook! 'helm-find-files-after-init-hook
