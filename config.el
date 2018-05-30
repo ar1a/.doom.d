@@ -92,7 +92,7 @@
       (setq helm-posframe-buffer buffer)
       :poshandler #'posframe-poshandler-frame-bottom-left-corner
       :left-fringe 10
-      :width (window-width)
+      :width (frame-width)
       :height 16 ;; ivy/+childframe uses 16
       :respect-header-line t))
 
