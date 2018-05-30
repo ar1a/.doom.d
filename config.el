@@ -23,18 +23,7 @@
   (prettier-js-mode))
 
 
-(defun enable-minor-mode (my-pair)
-  "Enable minor mode if filename matches the regexp.
-  MY-PAIR is a cons cell (regexp . minor-mode)."
-  (if (buffer-file-name)
-      (if (string-match (car my-pair) buffer-file-name)
-          (funcall (cdr my-pair)))))
-
-
 ;; Prettier in .tsx
-(after! web-mode
-  (add-hook! web-mode (enable-minor-mode '("\\.tsx\\'" . setup-prettier-js))))
-
 (after! typescript-mode
   (add-hook 'typescript-mode-hook #'flycheck-mode)
   ;; Prettier shit
@@ -53,8 +42,17 @@
   (setq js2-basic-offset 2))
 
 
+(defun enable-minor-mode (my-pair)
+  "Enable minor mode if filename matches the regexp.
+  MY-PAIR is a cons cell (regexp . minor-mode)."
+  (if (buffer-file-name)
+      (if (string-match (car my-pair) buffer-file-name)
+          (funcall (cdr my-pair)))))
+
 (after! web-mode
   (add-hook 'web-mode-hook #'flycheck-mode)
+
+  (add-hook! web-mode (enable-minor-mode '("\\.tsx\\'" . setup-prettier-js)))
 
   (setq web-mode-markup-indent-offset 2 ;; Indentation
         web-mode-code-indent-offset 2
