@@ -6,6 +6,10 @@
 (setq user-mail-address "aria@ar1as.space"
       user-full-name "Aria Edm")
 
+;; I want my stuff to clone to ~/projects
+(after! magit
+  (setq magithub-clone-default-directory "~/projects"))
+
 ;; Load snippets
 (after! yasnippet
   (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
