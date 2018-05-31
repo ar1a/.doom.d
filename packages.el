@@ -38,7 +38,3 @@
     (package! counsel-notmuch)
   (package! helm-notmuch))
 (package! org-mime)
-
-;; Helm stuff
-(package! posframe)
-
