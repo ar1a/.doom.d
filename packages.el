@@ -42,5 +42,3 @@
 ;; Helm stuff
 (package! posframe)
 
-;; Fish completion
-(package! fish-completion)
