@@ -10,6 +10,8 @@
 (after! magit
   (setq magithub-clone-default-directory "~/projects"))
 
+(setq +magit-hub-features t) ;; I want the PR/issue stuff too!
+
 ;; Load snippets
 (after! yasnippet
   (push (expand-file-name "snippets/" doom-private-dir) yas-snippet-dirs))
