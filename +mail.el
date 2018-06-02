@@ -40,10 +40,9 @@
         notmuch-hello-sections '(notmuch-hello-insert-saved-searches
                                  notmuch-hello-insert-alltags)
         notmuch-saved-searches '(
-                                 (:name "hscr"    :query "tag:hscr"                                           :key "h")
                                  (:name "inbox"   :query "tag:inbox not tag:trash"                            :key "i")
-                                 (:name "flagged" :query "tag:flagged"                                        :key "f")
                                  (:name "sent"    :query "tag:sent"                                           :key "s")
+                                 (:name "archived":query "tag:archived"                                       :key "a")
                                  (:name "drafts"  :query "tag:draft"                                          :key "d"))
         notmuch-archive-tags '("-inbox" "-unread"))
   (set! :evil-state 'notmuch-hello-mode 'normal)
@@ -101,7 +100,6 @@
             (:when (featurep! :completion helm)
               :nmv "s"     #'helm-notmuch)
             :nmv "q"   #'+mail/quit
-            :nmv "e"   #'+mail/notmuch-update
             :nmv "r"   #'notmuch-hello-update)
           (:map notmuch-search-mode-map
             :nmv "j"   #'notmuch-search-next-thread
@@ -112,7 +110,6 @@
             :nmv "N" #'notmuch-mua-new-mail
             :nmv "T"   #'notmuch-tree-from-search-current-query
             :nmv ";"   #'notmuch-search-tag
-            :nmv "e"   #'+mail/notmuch-update
             :nmv ","   #'notmuch-jump-search
             :nmv "d"   #'+mail/notmuch-search-delete
             :nmv "a"   #'notmuch-search-archive-thread
@@ -204,11 +201,6 @@
   (setq buffer-face-mode-face '(:family "SF Mono" :height 1.0))
   (buffer-face-mode)
   (setq-local line-spacing 0.2))
-
-;;;###autoload
-(defun +mail/notmuch-update ()
-  (interactive)
-  (start-process-shell-command "notmuch update" nil "cd ~/.mail/account.gmail && /usr/local/bin/gmi push && /usr/local/bin/gmi pull && /usr/local/bin/notmuch new && /usr/local/bin/afew -a -t"))
 
 
 
