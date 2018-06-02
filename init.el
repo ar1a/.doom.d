@@ -53,7 +53,7 @@
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
        (popup            ; tame sudden yet inevitable temporary windows
-        ;;+all             ; catch all popups that start with an asterix
+        +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
        neotree           ; a project drawer, like NERDTree for vim
 
