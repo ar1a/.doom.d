@@ -44,7 +44,7 @@
                                  (:name "sent"    :query "tag:sent"                                           :key "s")
                                  (:name "archived":query "tag:archived"                                       :key "a")
                                  (:name "drafts"  :query "tag:draft"                                          :key "d"))
-        notmuch-archive-tags '("-inbox" "-unread"))
+        notmuch-archive-tags '("-inbox" "-unread" "+archived"))
   (set! :evil-state 'notmuch-hello-mode 'normal)
   (set! :evil-state 'notmuch-show-mode 'normal)
   (set! :evil-state 'notmuch-search-mode 'normal)
