@@ -68,6 +68,7 @@
   (advice-add #'notmuch-hello-insert-saved-searches :override #'+mail/notmuch-hello-insert-saved-searches)
   (advice-add #'notmuch-hello-insert-buttons :override #'+mail/notmuch-hello-insert-buttons)
   ;; (set! :popup "\\*notmuch-hello\\*" '((size . 20) (side . left)) '((quit . t) (modeline . nil)))
+  (set! :popup "\\*offlineimap\\*" '((side . bottom) (size . 0.4)) '((quit . t)))
   (push (lambda (buf) (string-match-p "^\\*notmuch" (buffer-name buf)))
         doom-real-buffer-functions)
 
@@ -119,6 +120,7 @@
             :nmv "q"   #'+mail/quit
             :nmv "R"   #'notmuch-search-reply-to-thread-sender
             :nmv "r"   #'notmuch-search-reply-to-thread
+            :nmv "go"  #'+notmuch-exec-offlineimap
             (:when (featurep! :completion ivy)
               :nmv "s"     #'counsel-notmuch)
             (:when (featurep! :completion helm)
@@ -498,3 +500,14 @@ with `notmuch-hello-query-counts'."
     (unless (eq (% count tags-per-line) 0)
       (widget-insert "\n"))))
 
+
+(defun +notmuch-exec-offlineimap ()
+  "Execute offlineimap"
+  (interactive)
+  (set-process-sentinel
+   (start-process-shell-command "offlineimap"
+                                "*offlineimap*"
+                                "offlineimap -o")
+   '(lambda (process event)
+      (notmuch-refresh-all-buffers)))
+  (pop-to-buffer "*offlineimap*"))
