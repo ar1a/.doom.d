@@ -10,7 +10,8 @@
 (after! magit
   (setq magithub-clone-default-directory "~/projects"))
 
-(setq +magit-hub-features t) ;; I want the PR/issue stuff too!
+(setq +magit-hub-features t ;; I want the PR/issue stuff too!
+      +magit-hub-enable-by-default t)  ;; And I want it on by default!
 
 ;; Load snippets
 (after! yasnippet
